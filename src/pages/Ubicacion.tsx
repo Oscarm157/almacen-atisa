@@ -1,4 +1,3 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { LocationSelector } from "@/components/LocationSelector";
@@ -39,7 +38,7 @@ const Ubicacion = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Pasillo</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
               <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
@@ -48,7 +47,7 @@ const Ubicacion = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Rack</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
               <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
@@ -57,7 +56,7 @@ const Ubicacion = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Estante</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
               <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
@@ -66,7 +65,7 @@ const Ubicacion = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Insumo</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
               <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
