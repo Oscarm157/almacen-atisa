@@ -2,7 +2,7 @@
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { LocationSelector } from "@/components/LocationSelector";
-import { Plus, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { MetricCard } from "@/components/MetricCard";
@@ -10,13 +10,6 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@
 
 const Conteos = () => {
   const { toast } = useToast();
-
-  const handleNewCount = () => {
-    toast({
-      title: "Nuevo conteo",
-      description: "Iniciando nuevo conteo de inventario",
-    });
-  };
 
   const handleMoreInfo = (section: string) => {
     toast({
@@ -36,13 +29,6 @@ const Conteos = () => {
 
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-[#1c1c1c]">Conteos de Inventario</h2>
-          <Button 
-            onClick={handleNewCount}
-            className="bg-[#c42c30] hover:bg-[#ea384c] text-white"
-          >
-            <Plus className="w-5 h-5 mr-2" />
-            Nuevo Conteo
-          </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
