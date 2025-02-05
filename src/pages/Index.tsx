@@ -3,6 +3,9 @@ import { useToast } from "@/components/ui/use-toast";
 import { Sidebar } from "@/components/Sidebar";
 import { MetricCard } from "@/components/MetricCard";
 import { DonutChart } from "@/components/DonutChart";
+import { BarChart } from "@/components/BarChart";
+import { LineChart } from "@/components/LineChart";
+import { AreaChart } from "@/components/AreaChart";
 import { UserProfile } from "@/components/UserProfile";
 import { LocationSelector } from "@/components/LocationSelector";
 
@@ -16,12 +19,14 @@ const Index = () => {
     });
   };
 
-  const donutData = [
+  const chartData = [
     { name: "Grupo A", value: 60 },
     { name: "Grupo B", value: 40 },
+    { name: "Grupo C", value: 30 },
+    { name: "Grupo D", value: 50 },
   ];
 
-  const chartColors = ["#1E5F8B", "#FF7F50"];
+  const chartColors = ["#c42c30", "#1c1c1c"];
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -62,22 +67,22 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DonutChart
             title="Existencia por familia de insumos"
-            data={donutData}
+            data={chartData}
             colors={chartColors}
           />
-          <DonutChart
+          <BarChart
             title="Insumos en riesgo"
-            data={donutData}
+            data={chartData}
             colors={chartColors}
           />
-          <DonutChart
+          <LineChart
             title="Entradas por proveedor"
-            data={donutData}
+            data={chartData}
             colors={chartColors}
           />
-          <DonutChart
+          <AreaChart
             title="Salidas por Partida"
-            data={donutData}
+            data={chartData}
             colors={chartColors}
           />
         </div>

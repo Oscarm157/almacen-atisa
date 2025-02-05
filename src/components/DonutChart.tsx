@@ -1,3 +1,4 @@
+
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 interface DonutChartProps {
@@ -9,7 +10,7 @@ interface DonutChartProps {
 export const DonutChart = ({ data, colors, title }: DonutChartProps) => {
   return (
     <div className="bg-white p-4 rounded-lg shadow">
-      <h3 className="text-gray-700 mb-4">{title}</h3>
+      <h3 className="text-lg font-bold text-[#1c1c1c] mb-4">{title}</h3>
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
