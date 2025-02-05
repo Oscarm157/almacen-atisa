@@ -19,18 +19,25 @@ const menuItems = [
   { label: "Etiquetas", path: "/etiquetas", icon: Tags },
 ];
 
+// Memoize the logo section to prevent re-renders
+const LogoSection = () => (
+  <div className="mb-8 p-2 rounded-lg bg-[#c42c30]">
+    <img
+      src="/lovable-uploads/c1f8150f-7538-4ae3-b3b7-2b8b78247208.png"
+      alt="Atisa Logo"
+      className="w-32 mx-auto"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+);
+
 export const Sidebar = () => {
   const location = useLocation();
 
   return (
     <div className="bg-black text-white w-64 min-h-screen p-4">
-      <div className="mb-8 p-2 rounded-lg bg-[#c42c30]">
-        <img
-          src="/lovable-uploads/c1f8150f-7538-4ae3-b3b7-2b8b78247208.png"
-          alt="Atisa Logo"
-          className="w-32 mx-auto"
-        />
-      </div>
+      <LogoSection />
       
       <div className="mb-8">
         <LocationSelector />
