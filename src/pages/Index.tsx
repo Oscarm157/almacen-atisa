@@ -32,7 +32,7 @@ const Index = () => {
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1 p-8">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-4">
           <LocationSelector />
           <UserProfile />
         </div>
@@ -43,25 +43,25 @@ const Index = () => {
           <MetricCard
             title="Insumos registrados"
             value="450"
-            bgColor="bg-[#ea384c]"
+            bgColor="bg-[#c42c30]"
             onInfoClick={() => showMoreInfo("insumos")}
           />
           <MetricCard
             title="Existencia en cantidad"
             value="15,356"
-            bgColor="bg-[#c42c30]"
+            bgColor="bg-[#ea384c]"
             onInfoClick={() => showMoreInfo("existencia")}
           />
           <MetricCard
             title="Existencia en importe"
             value="15,356"
-            bgColor="bg-[#F97316]"
+            bgColor="bg-[#e65100]"
             onInfoClick={() => showMoreInfo("importe")}
           />
           <MetricCard
             title="Movimientos del día"
             value="56"
-            bgColor="bg-[#e65100]"
+            bgColor="bg-[#F97316]"
             onInfoClick={() => showMoreInfo("movimientos")}
           />
         </div>
