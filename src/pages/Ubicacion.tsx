@@ -26,8 +26,7 @@ const Ubicacion = () => {
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
       <div className="flex-1 p-8">
-        <div className="flex justify-between items-center mb-6">
-          <LocationSelector />
+        <div className="flex justify-end items-center mb-6">
           <UserProfile />
         </div>
 

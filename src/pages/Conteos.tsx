@@ -1,8 +1,5 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
-import { LocationSelector } from "@/components/LocationSelector";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { MetricCard } from "@/components/MetricCard";
@@ -22,8 +19,7 @@ const Conteos = () => {
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1 p-8">
-        <div className="flex justify-between items-center mb-4">
-          <LocationSelector />
+        <div className="flex justify-end items-center mb-4">
           <UserProfile />
         </div>
 
