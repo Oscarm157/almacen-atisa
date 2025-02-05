@@ -1,3 +1,4 @@
+
 import { useToast } from "@/components/ui/use-toast";
 import { Sidebar } from "@/components/Sidebar";
 import { MetricCard } from "@/components/MetricCard";
@@ -35,25 +36,25 @@ const Index = () => {
           <MetricCard
             title="Insumos registrados"
             value="450"
-            bgColor="bg-[#5BC0DE]"
+            bgColor="bg-[#c42c30]"
             onInfoClick={() => showMoreInfo("insumos")}
           />
           <MetricCard
             title="Existencia en cantidad"
             value="15,356"
-            bgColor="bg-[#6C757D]"
+            bgColor="bg-[#d14347]"
             onInfoClick={() => showMoreInfo("existencia")}
           />
           <MetricCard
             title="Existencia en importe"
             value="15,356"
-            bgColor="bg-[#28A745]"
+            bgColor="bg-[#de5a5e]"
             onInfoClick={() => showMoreInfo("importe")}
           />
           <MetricCard
             title="Movimientos del día"
             value="56"
-            bgColor="bg-[#FF7F50]"
+            bgColor="bg-[#eb7175]"
             onInfoClick={() => showMoreInfo("movimientos")}
           />
         </div>
