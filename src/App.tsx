@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Existencia from "./pages/Existencia";
-import InsumosRegistrados from "./pages/InsumosRegistrados";
 import Conteos from "./pages/Conteos";
 import Ubicacion from "./pages/Ubicacion";
 import Reportes from "./pages/Reportes";
@@ -23,10 +22,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Existencia />} />
-          <Route path="/insumos-registrados" element={<InsumosRegistrados />} />
-          <Route path="/existencia-cantidad" element={<Existencia />} />
-          <Route path="/existencia-importe" element={<Existencia />} />
-          <Route path="/movimientos-dia" element={<Existencia />} />
           <Route path="/conteos" element={<Conteos />} />
           <Route path="/ubicacion" element={<Ubicacion />} />
           <Route path="/reportes" element={<Reportes />} />
