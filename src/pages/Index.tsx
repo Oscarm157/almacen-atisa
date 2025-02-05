@@ -37,29 +37,31 @@ const Index = () => {
           <UserProfile />
         </div>
         
+        <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6">Datos Generales</h2>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricCard
             title="Insumos registrados"
             value="450"
-            bgColor="bg-[#c42c30]"
+            bgColor="bg-[#1c1c1c]"
             onInfoClick={() => showMoreInfo("insumos")}
           />
           <MetricCard
             title="Existencia en cantidad"
             value="15,356"
-            bgColor="bg-[#d14347]"
+            bgColor="bg-[#403E43]"
             onInfoClick={() => showMoreInfo("existencia")}
           />
           <MetricCard
             title="Existencia en importe"
             value="15,356"
-            bgColor="bg-[#de5a5e]"
+            bgColor="bg-[#555555]"
             onInfoClick={() => showMoreInfo("importe")}
           />
           <MetricCard
             title="Movimientos del día"
             value="56"
-            bgColor="bg-[#eb7175]"
+            bgColor="bg-[#888888]"
             onInfoClick={() => showMoreInfo("movimientos")}
           />
         </div>
