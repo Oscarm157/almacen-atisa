@@ -61,7 +61,7 @@ const Index = () => {
           <MetricCard
             title="Movimientos del día"
             value="56"
-            bgColor="bg-[#c42c30]"
+            bgColor="bg-[#e65100]"
             onInfoClick={() => showMoreInfo("movimientos")}
           />
         </div>

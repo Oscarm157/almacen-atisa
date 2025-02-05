@@ -23,7 +23,7 @@ export const Sidebar = () => {
     <div className="bg-black text-white w-64 min-h-screen p-4">
       <div className="mb-8 p-2">
         <img
-          src="https://i.ibb.co/60d8y5my/Atisa-Group-3.png"
+          src="/lovable-uploads/c1f8150f-7538-4ae3-b3b7-2b8b78247208.png"
           alt="Atisa Logo"
           className="w-32 mx-auto"
         />
