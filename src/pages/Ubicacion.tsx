@@ -1,11 +1,13 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { LocationSelector } from "@/components/LocationSelector";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
-import { Search, Pencil, Plus, ChevronDown } from "lucide-react";
+import { Search, Pencil, Plus, ChevronDown, FileText, ArrowUpDown, Tags } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Ubicacion = () => {
   const { toast } = useToast();
@@ -17,10 +19,119 @@ const Ubicacion = () => {
     });
   };
 
-  // Generate random numbers between 300 and 1400
   const generateRandomNumber = () => {
     return Math.floor(Math.random() * (1400 - 300 + 1)) + 300;
   };
+
+  const renderMainContent = () => (
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="bg-[#f5f5f5] p-4 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">Pasillo</h3>
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
+              <span className="text-base font-medium">Pasillo 1</span>
+              <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
+            </div>
+          </div>
+        </div>
+        <div className="bg-[#f5f5f5] p-4 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">Rack</h3>
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
+              <span className="text-base font-medium">Rack 1</span>
+              <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
+            </div>
+          </div>
+        </div>
+        <div className="bg-[#f5f5f5] p-4 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">Estante</h3>
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
+              <span className="text-base font-medium">01-C-07</span>
+              <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
+            </div>
+          </div>
+        </div>
+        <div className="bg-[#f5f5f5] p-4 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">Insumo</h3>
+          <div className="bg-gray-50 p-3 rounded-lg">
+            <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
+              <span className="text-base font-medium">10101001 – Insumo X</span>
+              <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl shadow-md p-8">
+        <div className="flex justify-between items-center mb-6">
+          <div className="relative flex-1 max-w-md">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Input
+              placeholder="Buscar ubicación o insumo..."
+              className="pl-12 border-gray-200 focus:border-[#ea384c] transition-colors rounded-lg"
+            />
+          </div>
+          <Button className="bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300 rounded-lg shadow-sm">
+            <Plus className="mr-2 h-5 w-5" />
+            Agregar ubicación
+          </Button>
+        </div>
+
+        <div className="overflow-hidden rounded-xl border border-gray-200">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
+                {[...Array(6)].map((_, index) => (
+                  <TableHead 
+                    key={index} 
+                    className="text-white font-medium"
+                  >
+                    Título {index + 1}
+                  </TableHead>
+                ))}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {[...Array(5)].map((_, rowIndex) => (
+                <TableRow key={rowIndex} className="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                  {[...Array(5)].map((_, colIndex) => (
+                    <TableCell key={colIndex} className="text-gray-700">
+                      {generateRandomNumber()}
+                    </TableCell>
+                  ))}
+                  <TableCell>
+                    <div className="w-8 h-8 rounded-full bg-[#ea384c] flex items-center justify-center hover:bg-[#d42d3d] transition-colors cursor-pointer">
+                      <Pencil className="h-4 w-4 text-white" />
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+              <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
+                <TableCell className="font-medium text-white">Totales</TableCell>
+                {[...Array(4)].map((_, index) => (
+                  <TableCell key={index} className="font-medium text-white">
+                    {generateRandomNumber()}
+                  </TableCell>
+                ))}
+                <TableCell></TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
+
+        <div className="flex justify-end gap-4 mt-6">
+          <Button className="bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300 shadow-sm">
+            Guardar
+          </Button>
+          <Button variant="outline" className="border-gray-200 text-gray-700 hover:bg-gray-50 transition-all duration-300">
+            Cancelar
+          </Button>
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
@@ -37,114 +148,54 @@ const Ubicacion = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-gray-700">Pasillo</h3>
-            <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">Pasillo 1</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-gray-700">Rack</h3>
-            <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">Rack 1</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-gray-700">Estante</h3>
-            <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">01-C-07</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-gray-700">Insumo</h3>
-            <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">10101001 – Insumo X</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Tabs defaultValue="ubicacion" className="w-full">
+          <TabsList className="mb-8">
+            <TabsTrigger value="ubicacion" className="data-[state=active]:bg-[#ea384c] data-[state=active]:text-white">
+              Ubicación
+            </TabsTrigger>
+            <TabsTrigger value="reportes" className="data-[state=active]:bg-[#ea384c] data-[state=active]:text-white">
+              <FileText className="w-4 h-4 mr-2" />
+              Reportes
+            </TabsTrigger>
+            <TabsTrigger value="maxmin" className="data-[state=active]:bg-[#ea384c] data-[state=active]:text-white">
+              <ArrowUpDown className="w-4 h-4 mr-2" />
+              Máximos y Mínimos
+            </TabsTrigger>
+            <TabsTrigger value="etiquetas" className="data-[state=active]:bg-[#ea384c] data-[state=active]:text-white">
+              <Tags className="w-4 h-4 mr-2" />
+              Etiquetas
+            </TabsTrigger>
+          </TabsList>
 
-        <div className="bg-white rounded-xl shadow-md p-8">
-          <div className="flex justify-between items-center mb-6">
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <Input
-                placeholder="Buscar ubicación o insumo..."
-                className="pl-12 border-gray-200 focus:border-[#ea384c] transition-colors rounded-lg"
-              />
+          <TabsContent value="ubicacion">
+            {renderMainContent()}
+          </TabsContent>
+
+          <TabsContent value="reportes">
+            <div className="bg-white p-8 rounded-xl shadow-md">
+              <h3 className="text-2xl font-semibold mb-4">Reportes</h3>
+              <p className="text-gray-600">Contenido de reportes pendiente...</p>
             </div>
-            <Button className="bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300 rounded-lg shadow-sm">
-              <Plus className="mr-2 h-5 w-5" />
-              Agregar ubicación
-            </Button>
-          </div>
+          </TabsContent>
 
-          <div className="overflow-hidden rounded-xl border border-gray-200">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
-                  {[...Array(6)].map((_, index) => (
-                    <TableHead 
-                      key={index} 
-                      className="text-white font-medium"
-                    >
-                      Título {index + 1}
-                    </TableHead>
-                  ))}
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {[...Array(5)].map((_, rowIndex) => (
-                  <TableRow key={rowIndex} className="hover:bg-gray-50 transition-colors border-b border-gray-100">
-                    {[...Array(5)].map((_, colIndex) => (
-                      <TableCell key={colIndex} className="text-gray-700">
-                        {generateRandomNumber()}
-                      </TableCell>
-                    ))}
-                    <TableCell>
-                      <div className="w-8 h-8 rounded-full bg-[#ea384c] flex items-center justify-center hover:bg-[#d42d3d] transition-colors cursor-pointer">
-                        <Pencil className="h-4 w-4 text-white" />
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-                <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
-                  <TableCell className="font-medium text-white">Totales</TableCell>
-                  {[...Array(4)].map((_, index) => (
-                    <TableCell key={index} className="font-medium text-white">
-                      {generateRandomNumber()}
-                    </TableCell>
-                  ))}
-                  <TableCell></TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </div>
+          <TabsContent value="maxmin">
+            <div className="bg-white p-8 rounded-xl shadow-md">
+              <h3 className="text-2xl font-semibold mb-4">Máximos y Mínimos</h3>
+              <p className="text-gray-600">Contenido de máximos y mínimos pendiente...</p>
+            </div>
+          </TabsContent>
 
-          <div className="flex justify-end gap-4 mt-6">
-            <Button className="bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300 shadow-sm">
-              Guardar
-            </Button>
-            <Button variant="outline" className="border-gray-200 text-gray-700 hover:bg-gray-50 transition-all duration-300">
-              Cancelar
-            </Button>
-          </div>
-        </div>
+          <TabsContent value="etiquetas">
+            <div className="bg-white p-8 rounded-xl shadow-md">
+              <h3 className="text-2xl font-semibold mb-4">Etiquetas</h3>
+              <p className="text-gray-600">Contenido de etiquetas pendiente...</p>
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
 };
 
 export default Ubicacion;
+
