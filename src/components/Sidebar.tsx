@@ -8,6 +8,7 @@ import {
   MapPin, 
   Tags 
 } from "lucide-react";
+import { LocationSelector } from "@/components/LocationSelector";
 
 const menuItems = [
   { label: "Existencia", path: "/", icon: PackageSearch },
@@ -28,6 +29,11 @@ export const Sidebar = () => {
           className="w-32 mx-auto"
         />
       </div>
+      
+      <div className="mb-8">
+        <LocationSelector />
+      </div>
+
       <nav>
         <ul className="space-y-2">
           {menuItems.map((item) => (

@@ -1,7 +1,5 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
-import { LocationSelector } from "@/components/LocationSelector";
 import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, BarChart2, FileDown } from "lucide-react";
@@ -16,8 +14,7 @@ const Reportes = () => {
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
       <div className="flex-1 p-8">
-        <div className="flex justify-between items-center mb-6">
-          <LocationSelector />
+        <div className="flex justify-end items-center mb-6">
           <UserProfile />
         </div>
 
