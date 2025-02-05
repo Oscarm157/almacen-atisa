@@ -1,3 +1,4 @@
+
 import {
   Select,
   SelectContent,
@@ -22,12 +23,12 @@ export const LocationSelector = () => {
           <SelectValue />
           <ChevronDown className="h-4 w-4 text-[#dddddd]" />
         </SelectTrigger>
-        <SelectContent className="bg-[#1c1c1c] text-[#dddddd] border-[#c42c30]">
+        <SelectContent className="bg-[#f3f3f3] text-[#1c1c1c] border-[#c42c30]">
           {locations.map((location) => (
             <SelectItem
               key={location}
               value={location}
-              className="hover:bg-[#c42c30] focus:bg-[#c42c30]"
+              className="hover:bg-[#c42c30] hover:text-[#dddddd] focus:bg-[#c42c30] focus:text-[#dddddd]"
             >
               {location}
             </SelectItem>
