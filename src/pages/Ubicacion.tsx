@@ -1,13 +1,26 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
-import { Search, Pencil, Plus, ChevronDown } from "lucide-react";
+import { Search, Pencil, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useState } from "react";
 
 const Ubicacion = () => {
   const { toast } = useToast();
+  const [selectedPasillo, setPasillo] = useState("1");
+  const [selectedRack, setRack] = useState("1");
+  const [selectedEstante, setEstante] = useState("01-C-07");
+  const [selectedInsumo, setInsumo] = useState("10101001");
 
   const handleMoreInfo = (section: string) => {
     toast({
@@ -36,37 +49,77 @@ const Ubicacion = () => {
           <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Pasillo</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">Pasillo 1</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
+              <Select value={selectedPasillo} onValueChange={setPasillo}>
+                <SelectTrigger className="w-full bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300">
+                  <SelectValue placeholder="Seleccionar Pasillo" />
+                </SelectTrigger>
+                <SelectContent>
+                  {[...Array(5)].map((_, i) => (
+                    <SelectItem key={i + 1} value={String(i + 1)}>
+                      Pasillo {i + 1}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
+
           <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Rack</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">Rack 1</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
+              <Select value={selectedRack} onValueChange={setRack}>
+                <SelectTrigger className="w-full bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300">
+                  <SelectValue placeholder="Seleccionar Rack" />
+                </SelectTrigger>
+                <SelectContent>
+                  {[...Array(8)].map((_, i) => (
+                    <SelectItem key={i + 1} value={String(i + 1)}>
+                      Rack {i + 1}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
+
           <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Estante</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">01-C-07</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
+              <Select value={selectedEstante} onValueChange={setEstante}>
+                <SelectTrigger className="w-full bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300">
+                  <SelectValue placeholder="Seleccionar Estante" />
+                </SelectTrigger>
+                <SelectContent>
+                  {["01-A-07", "01-B-07", "01-C-07", "02-A-07", "02-B-07", "02-C-07"].map((code) => (
+                    <SelectItem key={code} value={code}>
+                      {code}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
+
           <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold mb-4 text-gray-700">Insumo</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
-              <div className="bg-[#ea384c] text-white p-4 rounded-lg flex items-center justify-between cursor-pointer hover:bg-[#d42d3d] transition-all duration-300">
-                <span className="text-base font-medium">10101001 – Insumo X</span>
-                <ChevronDown className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
-              </div>
+              <Select value={selectedInsumo} onValueChange={setInsumo}>
+                <SelectTrigger className="w-full bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300">
+                  <SelectValue placeholder="Seleccionar Insumo" />
+                </SelectTrigger>
+                <SelectContent>
+                  {[
+                    { id: "10101001", name: "Insumo X" },
+                    { id: "10101002", name: "Insumo Y" },
+                    { id: "10101003", name: "Insumo Z" },
+                    { id: "10101004", name: "Insumo W" },
+                  ].map((item) => (
+                    <SelectItem key={item.id} value={item.id}>
+                      {item.id} – {item.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
         </div>
@@ -143,3 +196,4 @@ const Ubicacion = () => {
 };
 
 export default Ubicacion;
+
