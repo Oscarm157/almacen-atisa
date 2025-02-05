@@ -11,13 +11,11 @@ import { ChevronDown } from "lucide-react";
 const locations = [
   "Almacén - Prisma XVIII",
   "Almacén - Prisma XIX",
-  "Almacén - Central",
-  "Almacén - Norte",
 ];
 
 export const LocationSelector = () => {
   return (
-    <div className="flex items-center gap-2 mb-8">
+    <div className="flex items-center gap-2 mb-4">
       <Select defaultValue={locations[0]}>
         <SelectTrigger className="w-[300px] text-xl font-bold bg-[#f3f3f3] text-[#1c1c1c] border-[#c42c30]">
           <SelectValue />
