@@ -13,7 +13,7 @@ const menuItems = [
   { label: "Existencia", path: "/", icon: PackageSearch },
   { label: "Conteos", path: "/conteos", icon: ClipboardList },
   { label: "Reportes", path: "/reportes", icon: BarChart3 },
-  { label: "Máximos & Mínimos", path: "/maxmin", icon: ArrowLeftRight },
+  { label: "Máximos y Mínimos", path: "/maxmin", icon: ArrowLeftRight },
   { label: "Ubicación", path: "/ubicacion", icon: MapPin },
   { label: "Etiquetas", path: "/etiquetas", icon: Tags },
 ];
