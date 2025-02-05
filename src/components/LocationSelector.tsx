@@ -28,7 +28,7 @@ export const LocationSelector = () => {
             <SelectItem
               key={location}
               value={location}
-              className="hover:bg-[#c42c30] hover:text-[#dddddd] focus:bg-[#c42c30] focus:text-[#dddddd]"
+              className="hover:bg-[#f3f3f3] hover:text-[#1c1c1c] focus:bg-[#f3f3f3] focus:text-[#1c1c1c]"
             >
               {location}
             </SelectItem>
