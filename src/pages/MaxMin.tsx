@@ -10,13 +10,13 @@ const MaxMin = () => {
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
-      <div className="flex-1 p-8">
-        <div className="flex justify-end items-center mb-6">
+      <div className="flex-1 p-4">
+        <div className="flex justify-end items-center mb-2">
           <UserProfile />
         </div>
 
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-[#1c1c1c]">
             Máximos y Mínimos
           </h2>
         </div>

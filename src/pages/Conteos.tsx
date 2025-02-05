@@ -18,8 +18,8 @@ const Conteos = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
-      <div className="flex-1 p-8">
-        <div className="flex justify-end items-center mb-4">
+      <div className="flex-1 p-4">
+        <div className="flex justify-end items-center mb-2">
           <UserProfile />
         </div>
 
