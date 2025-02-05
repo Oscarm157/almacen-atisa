@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { MetricCard } from "@/components/MetricCard";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
-import { Search, Pencil, Plus } from "lucide-react";
+import { Search, Pencil, Plus, ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const Ubicacion = () => {
@@ -29,32 +29,36 @@ const Ubicacion = () => {
         </div>
 
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-[#1c1c1c]">Ubicación de Insumos</h2>
+          <h2 className="text-2xl font-bold text-[#222222]">Ubicación de Insumos</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-[#E6F4FF] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2">Pasillo</h3>
-            <div className="bg-[#33C3F0] text-white p-3 rounded">
-              Pasillo 1
+          <div className="bg-[#f8f8f8] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Pasillo</h3>
+            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
+              <span>Pasillo 1</span>
+              <ChevronDown className="h-4 w-4" />
             </div>
           </div>
-          <div className="bg-[#E6F4FF] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2">Rack</h3>
-            <div className="bg-[#33C3F0] text-white p-3 rounded">
-              Rack 1
+          <div className="bg-[#f8f8f8] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Rack</h3>
+            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
+              <span>Rack 1</span>
+              <ChevronDown className="h-4 w-4" />
             </div>
           </div>
-          <div className="bg-[#E6F4FF] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2">Estante</h3>
-            <div className="bg-[#33C3F0] text-white p-3 rounded">
-              01-C-07
+          <div className="bg-[#f8f8f8] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Estante</h3>
+            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
+              <span>01-C-07</span>
+              <ChevronDown className="h-4 w-4" />
             </div>
           </div>
-          <div className="bg-[#E6F4FF] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2">Insumo</h3>
-            <div className="bg-[#33C3F0] text-white p-3 rounded">
-              10101001 – Insumo X
+          <div className="bg-[#f8f8f8] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Insumo</h3>
+            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
+              <span>10101001 – Insumo X</span>
+              <ChevronDown className="h-4 w-4" />
             </div>
           </div>
         </div>
@@ -68,7 +72,7 @@ const Ubicacion = () => {
                 className="pl-10"
               />
             </div>
-            <Button className="bg-black text-white hover:bg-black/90">
+            <Button className="bg-[#222222] text-white hover:bg-[#000000e6]">
               <Plus className="mr-2 h-4 w-4" />
               Agregar ubicación
             </Button>
@@ -77,7 +81,7 @@ const Ubicacion = () => {
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="bg-[#0F4C75] hover:bg-[#0F4C75]">
+                <TableRow className="bg-[#222222] hover:bg-[#222222]">
                   <TableHead className="text-white">Encabezados</TableHead>
                   <TableHead className="text-white"></TableHead>
                   <TableHead className="text-white"></TableHead>
@@ -88,9 +92,9 @@ const Ubicacion = () => {
               </TableHeader>
               <TableBody>
                 {[...Array(3)].map((_, index) => (
-                  <TableRow key={index} className="bg-gray-100">
+                  <TableRow key={index} className="bg-[#f8f8f8]">
                     <TableCell>
-                      <Pencil className="h-4 w-4 text-gray-500" />
+                      <Pencil className="h-4 w-4 text-[#8A898C]" />
                     </TableCell>
                     <TableCell></TableCell>
                     <TableCell></TableCell>
@@ -99,7 +103,7 @@ const Ubicacion = () => {
                     <TableCell></TableCell>
                   </TableRow>
                 ))}
-                <TableRow className="bg-[#0F4C75] text-white">
+                <TableRow className="bg-[#222222] text-white">
                   <TableCell>Totales</TableCell>
                   <TableCell></TableCell>
                   <TableCell></TableCell>
@@ -112,10 +116,10 @@ const Ubicacion = () => {
           </div>
 
           <div className="flex justify-end gap-4 mt-6">
-            <Button className="bg-black text-white hover:bg-black/90">
+            <Button className="bg-[#222222] text-white hover:bg-[#000000e6]">
               Guardar
             </Button>
-            <Button variant="outline" className="border-black text-black hover:bg-black/10">
+            <Button variant="outline" className="border-[#222222] text-[#222222] hover:bg-[#22222210]">
               Cancelar
             </Button>
           </div>
