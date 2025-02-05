@@ -21,7 +21,7 @@ const menuItems = [
 export const Sidebar = () => {
   return (
     <div className="bg-black text-white w-64 min-h-screen p-4">
-      <div className="mb-8 p-2">
+      <div className="mb-8 p-2 rounded-lg bg-[#c42c30]">
         <img
           src="/lovable-uploads/c1f8150f-7538-4ae3-b3b7-2b8b78247208.png"
           alt="Atisa Logo"
