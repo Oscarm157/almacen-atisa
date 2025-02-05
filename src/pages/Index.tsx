@@ -3,6 +3,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { MetricCard } from "@/components/MetricCard";
 import { DonutChart } from "@/components/DonutChart";
 import { UserProfile } from "@/components/UserProfile";
+import { LocationSelector } from "@/components/LocationSelector";
 
 const Index = () => {
   const { toast } = useToast();
@@ -25,7 +26,8 @@ const Index = () => {
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1 p-8">
-        <div className="flex justify-end mb-8">
+        <div className="flex justify-between items-center mb-8">
+          <LocationSelector />
           <UserProfile />
         </div>
         
