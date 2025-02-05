@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { 
   PackageSearch, 
   ClipboardList, 
@@ -20,6 +20,8 @@ const menuItems = [
 ];
 
 export const Sidebar = () => {
+  const location = useLocation();
+
   return (
     <div className="bg-black text-white w-64 min-h-screen p-4">
       <div className="mb-8 p-2 rounded-lg bg-[#c42c30]">
@@ -36,17 +38,25 @@ export const Sidebar = () => {
 
       <nav>
         <ul className="space-y-2">
-          {menuItems.map((item) => (
-            <li key={item.path}>
-              <Link
-                to={item.path}
-                className="block p-2 hover:bg-gray-800 rounded transition-colors text-lg font-bold flex items-center gap-3"
-              >
-                <item.icon className="w-5 h-5" />
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {menuItems.map((item) => {
+            const isActive = location.pathname === item.path || 
+              (item.path === "/" && location.pathname === "");
+            return (
+              <li key={item.path}>
+                <Link
+                  to={item.path}
+                  className={`block p-2 rounded transition-colors text-lg font-bold flex items-center gap-3
+                    ${isActive 
+                      ? "bg-[#c42c30] text-white" 
+                      : "hover:bg-gray-800"
+                    }`}
+                >
+                  <item.icon className="w-5 h-5" />
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </div>
