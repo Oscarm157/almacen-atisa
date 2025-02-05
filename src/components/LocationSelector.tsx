@@ -44,15 +44,12 @@ export const LocationSelector = () => {
         </SelectContent>
       </Select>
       {isAnimating && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 animate-fade-in">
-          <div className="flex items-center justify-center h-full">
-            <div className="text-white text-xl animate-fade-in">
-              Cargando {value}...
-            </div>
+        <div className="absolute top-4 right-4 bg-black/10 backdrop-blur-sm rounded-lg px-4 py-2 animate-fade-in">
+          <div className="text-white text-sm">
+            Cargando {value}...
           </div>
         </div>
       )}
     </div>
   );
 };
-
