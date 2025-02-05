@@ -43,25 +43,25 @@ const Index = () => {
           <MetricCard
             title="Insumos registrados"
             value="450"
-            bgColor="bg-[#1c1c1c]"
+            bgColor="bg-[#ea384c]"
             onInfoClick={() => showMoreInfo("insumos")}
           />
           <MetricCard
             title="Existencia en cantidad"
             value="15,356"
-            bgColor="bg-[#403E43]"
+            bgColor="bg-[#c42c30]"
             onInfoClick={() => showMoreInfo("existencia")}
           />
           <MetricCard
             title="Existencia en importe"
             value="15,356"
-            bgColor="bg-[#555555]"
+            bgColor="bg-[#F97316]"
             onInfoClick={() => showMoreInfo("importe")}
           />
           <MetricCard
             title="Movimientos del día"
             value="56"
-            bgColor="bg-[#888888]"
+            bgColor="bg-[#c42c30]"
             onInfoClick={() => showMoreInfo("movimientos")}
           />
         </div>
