@@ -49,25 +49,25 @@ const Conteos = () => {
           <MetricCard
             title="Insumos A"
             value="450"
-            bgColor="bg-[var(--blue-card)]"
+            bgColor="bg-[#33C3F0]"
             onInfoClick={() => handleMoreInfo("Insumos A")}
           />
           <MetricCard
             title="Insumos B"
             value="15,356"
-            bgColor="bg-[var(--gray-card)]"
+            bgColor="bg-[#8E9196]"
             onInfoClick={() => handleMoreInfo("Insumos B")}
           />
           <MetricCard
             title="Insumos C"
             value="15,356"
-            bgColor="bg-[var(--green-card)]"
+            bgColor="bg-[#4CAF50]"
             onInfoClick={() => handleMoreInfo("Insumos C")}
           />
           <MetricCard
             title="Total insumos"
             value="56"
-            bgColor="bg-[var(--coral-card)]"
+            bgColor="bg-[#F97316]"
             onInfoClick={() => handleMoreInfo("Total insumos")}
           />
         </div>
