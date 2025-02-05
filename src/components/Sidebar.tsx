@@ -6,12 +6,21 @@ import {
   BarChart3, 
   ArrowLeftRight, 
   MapPin, 
-  Tags 
+  Tags,
+  ChevronDown
 } from "lucide-react";
 import { LocationSelector } from "@/components/LocationSelector";
+import { useState, useEffect } from "react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
-const menuItems = [
-  { label: "Existencia", path: "/", icon: PackageSearch },
+const subMenuItems = [
+  { label: "Insumos registrados", path: "/insumos-registrados" },
+  { label: "Existencia en cantidad", path: "/existencia-cantidad" },
+  { label: "Existencia en importe", path: "/existencia-importe" },
+  { label: "Movimientos del día", path: "/movimientos-dia" },
+];
+
+const otherMenuItems = [
   { label: "Conteos", path: "/conteos", icon: ClipboardList },
   { label: "Reportes", path: "/reportes", icon: BarChart3 },
   { label: "Máximos y Mínimos", path: "/maxmin", icon: ArrowLeftRight },
@@ -34,6 +43,14 @@ const LogoSection = () => (
 
 export const Sidebar = () => {
   const location = useLocation();
+  const [isExistenciaOpen, setIsExistenciaOpen] = useState(false);
+
+  // Auto-open submenu when on Existencia related pages
+  useEffect(() => {
+    const isExistenciaPage = location.pathname === "/" || 
+      subMenuItems.some(item => location.pathname === item.path);
+    setIsExistenciaOpen(isExistenciaPage);
+  }, [location]);
 
   return (
     <div className="fixed top-0 left-0 bg-black text-white w-64 h-screen p-4 overflow-y-auto">
@@ -45,25 +62,56 @@ export const Sidebar = () => {
 
       <nav>
         <ul className="space-y-2">
-          {menuItems.map((item) => {
-            const isActive = location.pathname === item.path || 
-              (item.path === "/" && location.pathname === "");
-            return (
-              <li key={item.path}>
-                <Link
-                  to={item.path}
-                  className={`block p-2 rounded transition-colors text-lg font-bold flex items-center gap-3
-                    ${isActive 
-                      ? "bg-[#c42c30] text-white" 
-                      : "hover:bg-gray-800"
-                    }`}
+          <li>
+            <Collapsible open={isExistenciaOpen} onOpenChange={setIsExistenciaOpen}>
+              <CollapsibleTrigger className="w-full">
+                <div className={`p-2 rounded transition-colors text-lg font-bold flex items-center justify-between
+                  ${location.pathname === "/" ? "bg-[#c42c30] text-white" : "hover:bg-gray-800"}`}
                 >
-                  <item.icon className="w-5 h-5" />
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
+                  <div className="flex items-center gap-3">
+                    <PackageSearch className="w-5 h-5" />
+                    Existencia
+                  </div>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isExistenciaOpen ? 'rotate-180' : ''}`} />
+                </div>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <ul className="mt-2 ml-7 space-y-2">
+                  {subMenuItems.map((item) => (
+                    <li key={item.path}>
+                      <Link
+                        to={item.path}
+                        className={`block p-2 rounded transition-colors text-base flex items-center gap-2
+                          ${location.pathname === item.path 
+                            ? "bg-[#c42c30] text-white" 
+                            : "hover:bg-gray-800"
+                          }`}
+                      >
+                        <ChevronDown className="w-4 h-4" />
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleContent>
+            </Collapsible>
+          </li>
+
+          {otherMenuItems.map((item) => (
+            <li key={item.path}>
+              <Link
+                to={item.path}
+                className={`block p-2 rounded transition-colors text-lg font-bold flex items-center gap-3
+                  ${location.pathname === item.path 
+                    ? "bg-[#c42c30] text-white" 
+                    : "hover:bg-gray-800"
+                  }`}
+              >
+                <item.icon className="w-5 h-5" />
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>
