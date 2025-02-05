@@ -36,7 +36,7 @@ const Ubicacion = () => {
           <div className="bg-[#e5e5e5] p-4 rounded-lg">
             <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Pasillo</h3>
             <div className="bg-[#f8f8f8] p-2 rounded">
-              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm shadow-sm">
                 <span>Pasillo 1</span>
                 <ChevronDown className="h-4 w-4" />
               </div>
@@ -45,7 +45,7 @@ const Ubicacion = () => {
           <div className="bg-[#e5e5e5] p-4 rounded-lg">
             <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Rack</h3>
             <div className="bg-[#f8f8f8] p-2 rounded">
-              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm shadow-sm">
                 <span>Rack 1</span>
                 <ChevronDown className="h-4 w-4" />
               </div>
@@ -54,7 +54,7 @@ const Ubicacion = () => {
           <div className="bg-[#e5e5e5] p-4 rounded-lg">
             <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Estante</h3>
             <div className="bg-[#f8f8f8] p-2 rounded">
-              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm shadow-sm">
                 <span>01-C-07</span>
                 <ChevronDown className="h-4 w-4" />
               </div>
@@ -63,7 +63,7 @@ const Ubicacion = () => {
           <div className="bg-[#e5e5e5] p-4 rounded-lg">
             <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Insumo</h3>
             <div className="bg-[#f8f8f8] p-2 rounded">
-              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm shadow-sm">
                 <span>10101001 – Insumo X</span>
                 <ChevronDown className="h-4 w-4" />
               </div>
