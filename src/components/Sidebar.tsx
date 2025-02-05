@@ -19,7 +19,6 @@ const menuItems = [
   { label: "Etiquetas", path: "/etiquetas", icon: Tags },
 ];
 
-// Memoize the logo section to prevent re-renders
 const LogoSection = () => (
   <div className="mb-8 p-2 rounded-lg bg-[#c42c30]">
     <img
@@ -36,7 +35,7 @@ export const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <div className="bg-black text-white w-64 min-h-screen p-4">
+    <div className="fixed top-0 left-0 bg-black text-white w-64 h-screen p-4 overflow-y-auto">
       <LogoSection />
       
       <div className="mb-8">

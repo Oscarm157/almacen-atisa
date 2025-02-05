@@ -30,7 +30,7 @@ const Index = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
-      <div className="flex-1">
+      <div className="flex-1 ml-64">
         <div className="sticky top-0 z-10 bg-gray-50 p-4">
           <div className="flex justify-end items-center mb-2">
             <UserProfile />
