@@ -21,7 +21,6 @@ export const LocationSelector = () => {
   const handleValueChange = (newValue: string) => {
     setValue(newValue);
     toast({
-      title: "Almacén cambiado",
       description: `Cambiando a ${newValue}...`,
       duration: 2000,
     });
