@@ -10,12 +10,15 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 export const LocationSelector = () => {
-  const [value, setValue] = useState("Prisma XVIII");
+  const [value, setValue] = useState("PIP Sur");
   const { toast } = useToast();
   
   const locations = [
-    "Prisma XVIII",
-    "Prisma XIX",
+    "PIP Sur",
+    "Bronce II",
+    "Link",
+    "Hottah",
+    "Prisma X"
   ];
 
   const handleValueChange = (newValue: string) => {
@@ -48,4 +51,3 @@ export const LocationSelector = () => {
     </div>
   );
 };
-
