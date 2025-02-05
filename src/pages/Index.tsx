@@ -30,61 +30,65 @@ const Index = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
-      <div className="flex-1 p-4">
-        <div className="flex justify-end items-center mb-2">
-          <UserProfile />
-        </div>
-        
-        <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6">Datos Generales</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <MetricCard
-            title="Insumos registrados"
-            value="450"
-            bgColor="bg-[#33C3F0]"
-            onInfoClick={() => showMoreInfo("insumos")}
-          />
-          <MetricCard
-            title="Existencia en cantidad"
-            value="15,356"
-            bgColor="bg-[#8E9196]"
-            onInfoClick={() => showMoreInfo("existencia")}
-          />
-          <MetricCard
-            title="Existencia en importe"
-            value="15,356"
-            bgColor="bg-[#4CAF50]"
-            onInfoClick={() => showMoreInfo("importe")}
-          />
-          <MetricCard
-            title="Movimientos del día"
-            value="56"
-            bgColor="bg-[#F97316]"
-            onInfoClick={() => showMoreInfo("movimientos")}
-          />
+      <div className="flex-1">
+        <div className="sticky top-0 z-10 bg-gray-50 p-4">
+          <div className="flex justify-end items-center mb-2">
+            <UserProfile />
+          </div>
+          
+          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6">Datos Generales</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <MetricCard
+              title="Insumos registrados"
+              value="450"
+              bgColor="bg-[#33C3F0]"
+              onInfoClick={() => showMoreInfo("insumos")}
+            />
+            <MetricCard
+              title="Existencia en cantidad"
+              value="15,356"
+              bgColor="bg-[#8E9196]"
+              onInfoClick={() => showMoreInfo("existencia")}
+            />
+            <MetricCard
+              title="Existencia en importe"
+              value="15,356"
+              bgColor="bg-[#4CAF50]"
+              onInfoClick={() => showMoreInfo("importe")}
+            />
+            <MetricCard
+              title="Movimientos del día"
+              value="56"
+              bgColor="bg-[#F97316]"
+              onInfoClick={() => showMoreInfo("movimientos")}
+            />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <DonutChart
-            title="Existencia por familia de insumos"
-            data={chartData}
-            colors={chartColors}
-          />
-          <BarChart
-            title="Insumos en riesgo"
-            data={chartData}
-            colors={chartColors}
-          />
-          <LineChart
-            title="Entradas por proveedor"
-            data={chartData}
-            colors={chartColors}
-          />
-          <AreaChart
-            title="Salidas por Partida"
-            data={chartData}
-            colors={chartColors}
-          />
+        <div className="p-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <DonutChart
+              title="Existencia por familia de insumos"
+              data={chartData}
+              colors={chartColors}
+            />
+            <BarChart
+              title="Insumos en riesgo"
+              data={chartData}
+              colors={chartColors}
+            />
+            <LineChart
+              title="Entradas por proveedor"
+              data={chartData}
+              colors={chartColors}
+            />
+            <AreaChart
+              title="Salidas por Partida"
+              data={chartData}
+              colors={chartColors}
+            />
+          </div>
         </div>
       </div>
     </div>
