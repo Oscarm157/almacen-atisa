@@ -25,7 +25,7 @@ const LogoSection = () => (
       src="/lovable-uploads/c1f8150f-7538-4ae3-b3b7-2b8b78247208.png"
       alt="Atisa Logo"
       className="w-32 mx-auto"
-      loading="eager"
+      loading="lazy"
       decoding="async"
     />
   </div>
