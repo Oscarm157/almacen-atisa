@@ -34,31 +34,39 @@ const Ubicacion = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-[#f8f8f8] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Pasillo</h3>
-            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
-              <span>Pasillo 1</span>
-              <ChevronDown className="h-4 w-4" />
+            <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Pasillo</h3>
+            <div className="bg-[#f8f8f8] p-2 rounded">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+                <span>Pasillo 1</span>
+                <ChevronDown className="h-4 w-4" />
+              </div>
             </div>
           </div>
           <div className="bg-[#f8f8f8] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Rack</h3>
-            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
-              <span>Rack 1</span>
-              <ChevronDown className="h-4 w-4" />
+            <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Rack</h3>
+            <div className="bg-[#f8f8f8] p-2 rounded">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+                <span>Rack 1</span>
+                <ChevronDown className="h-4 w-4" />
+              </div>
             </div>
           </div>
           <div className="bg-[#f8f8f8] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Estante</h3>
-            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
-              <span>01-C-07</span>
-              <ChevronDown className="h-4 w-4" />
+            <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Estante</h3>
+            <div className="bg-[#f8f8f8] p-2 rounded">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+                <span>01-C-07</span>
+                <ChevronDown className="h-4 w-4" />
+              </div>
             </div>
           </div>
           <div className="bg-[#f8f8f8] p-4 rounded-lg">
-            <h3 className="text-sm font-medium mb-2 text-[#403E43]">Insumo</h3>
-            <div className="bg-[#ea384c] text-white p-3 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors">
-              <span>10101001 – Insumo X</span>
-              <ChevronDown className="h-4 w-4" />
+            <h3 className="text-lg font-semibold mb-3 text-[#403E43]">Insumo</h3>
+            <div className="bg-[#f8f8f8] p-2 rounded">
+              <div className="bg-[#ea384c] text-white p-2 rounded flex items-center justify-between cursor-pointer hover:bg-[#d42d3f] transition-colors text-sm">
+                <span>10101001 – Insumo X</span>
+                <ChevronDown className="h-4 w-4" />
+              </div>
             </div>
           </div>
         </div>
