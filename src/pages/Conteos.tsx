@@ -79,7 +79,7 @@ const Conteos = () => {
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-[#006d77] hover:bg-[#006d77]">
+                  <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
                     <TableHead className="text-white">Encabezados</TableHead>
                     <TableHead className="text-white">Campo 1</TableHead>
                     <TableHead className="text-white">Campo 2</TableHead>
@@ -95,7 +95,7 @@ const Conteos = () => {
                       <TableCell>-</TableCell>
                     </TableRow>
                   ))}
-                  <TableRow className="bg-[#006d77] text-white hover:bg-[#006d77]">
+                  <TableRow className="bg-[#ea384c] text-white hover:bg-[#ea384c]">
                     <TableCell>Totales</TableCell>
                     <TableCell>0</TableCell>
                     <TableCell>0</TableCell>
@@ -112,7 +112,7 @@ const Conteos = () => {
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-[#006d77] hover:bg-[#006d77]">
+                  <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
                     <TableHead className="text-white">Encabezados</TableHead>
                     <TableHead className="text-white">Campo 1</TableHead>
                     <TableHead className="text-white">Campo 2</TableHead>
@@ -128,7 +128,7 @@ const Conteos = () => {
                       <TableCell>-</TableCell>
                     </TableRow>
                   ))}
-                  <TableRow className="bg-[#006d77] text-white hover:bg-[#006d77]">
+                  <TableRow className="bg-[#ea384c] text-white hover:bg-[#ea384c]">
                     <TableCell>Totales</TableCell>
                     <TableCell>0</TableCell>
                     <TableCell>0</TableCell>
