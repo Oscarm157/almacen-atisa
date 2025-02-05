@@ -9,7 +9,11 @@ import {
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-export const LocationSelector = () => {
+interface LocationSelectorProps {
+  onWarehouseChange?: (warehouse: string) => void;
+}
+
+export const LocationSelector = ({ onWarehouseChange }: LocationSelectorProps) => {
   const [value, setValue] = useState("PIP Sur");
   const { toast } = useToast();
   
@@ -23,6 +27,9 @@ export const LocationSelector = () => {
 
   const handleValueChange = (newValue: string) => {
     setValue(newValue);
+    if (onWarehouseChange) {
+      onWarehouseChange(newValue);
+    }
     toast({
       description: `Cambiando a ${newValue}...`,
       duration: 2000,

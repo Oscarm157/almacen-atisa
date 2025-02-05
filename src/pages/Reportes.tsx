@@ -1,11 +1,79 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, BarChart2, FileDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { LocationSelector } from "@/components/LocationSelector";
+import { useState } from "react";
+
+const warehouseData = {
+  "PIP Sur": {
+    existencias: 450,
+    movimientos: 12345,
+    valoracion: 985000,
+    reportHistory: Array(5).fill(null).map((_, index) => ({
+      date: new Date(2024, 2, 15 - index).toLocaleDateString(),
+      type: "Reporte de Existencias",
+      user: "Carlos Ruiz",
+      status: "Completado"
+    }))
+  },
+  "Bronce II": {
+    existencias: 780,
+    movimientos: 8901,
+    valoracion: 675000,
+    reportHistory: Array(5).fill(null).map((_, index) => ({
+      date: new Date(2024, 2, 15 - index).toLocaleDateString(),
+      type: "Reporte de Movimientos",
+      user: "Ana López",
+      status: "Completado"
+    }))
+  },
+  "Link": {
+    existencias: 320,
+    movimientos: 5678,
+    valoracion: 435000,
+    reportHistory: Array(5).fill(null).map((_, index) => ({
+      date: new Date(2024, 2, 15 - index).toLocaleDateString(),
+      type: "Reporte de Valorización",
+      user: "Miguel Torres",
+      status: "Completado"
+    }))
+  },
+  "Hottah": {
+    existencias: 590,
+    movimientos: 9012,
+    valoracion: 890000,
+    reportHistory: Array(5).fill(null).map((_, index) => ({
+      date: new Date(2024, 2, 15 - index).toLocaleDateString(),
+      type: "Reporte de Existencias",
+      user: "Laura Sánchez",
+      status: "Completado"
+    }))
+  },
+  "Prisma X": {
+    existencias: 910,
+    movimientos: 15678,
+    valoracion: 1250000,
+    reportHistory: Array(5).fill(null).map((_, index) => ({
+      date: new Date(2024, 2, 15 - index).toLocaleDateString(),
+      type: "Reporte de Movimientos",
+      user: "Roberto García",
+      status: "Completado"
+    }))
+  }
+};
 
 const Reportes = () => {
+  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
+  const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
+
+  const handleWarehouseChange = (warehouse: string) => {
+    setSelectedWarehouse(warehouse);
+  };
+
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
@@ -17,13 +85,17 @@ const Reportes = () => {
           <UserProfile />
         </div>
 
+        <div className="mb-6">
+          <LocationSelector onWarehouseChange={handleWarehouseChange} />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-700">Reporte de Existencias</h3>
               <BarChart2 className="h-6 w-6 text-[#ea384c]" />
             </div>
-            <p className="text-gray-600 mb-4">Consulta las existencias actuales por almacén</p>
+            <p className="text-gray-600 mb-4">Existencias actuales: {currentData.existencias}</p>
             <Button className="w-full bg-[#ea384c] hover:bg-[#d42d3d]">
               <FileDown className="mr-2 h-4 w-4" />
               Generar Reporte
@@ -35,7 +107,7 @@ const Reportes = () => {
               <h3 className="text-lg font-semibold text-gray-700">Reporte de Movimientos</h3>
               <BarChart2 className="h-6 w-6 text-[#ea384c]" />
             </div>
-            <p className="text-gray-600 mb-4">Historial de entradas y salidas de insumos</p>
+            <p className="text-gray-600 mb-4">Movimientos totales: {currentData.movimientos}</p>
             <Button className="w-full bg-[#ea384c] hover:bg-[#d42d3d]">
               <FileDown className="mr-2 h-4 w-4" />
               Generar Reporte
@@ -47,7 +119,7 @@ const Reportes = () => {
               <h3 className="text-lg font-semibold text-gray-700">Reporte de Valorización</h3>
               <BarChart2 className="h-6 w-6 text-[#ea384c]" />
             </div>
-            <p className="text-gray-600 mb-4">Valor actual del inventario por almacén</p>
+            <p className="text-gray-600 mb-4">Valor actual: ${currentData.valoracion.toLocaleString()}</p>
             <Button className="w-full bg-[#ea384c] hover:bg-[#d42d3d]">
               <FileDown className="mr-2 h-4 w-4" />
               Generar Reporte
@@ -78,15 +150,15 @@ const Reportes = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {[...Array(5)].map((_, index) => (
+                {currentData.reportHistory.map((report, index) => (
                   <TableRow key={index} className="hover:bg-gray-50">
-                    <TableCell>{new Date().toLocaleDateString()}</TableCell>
-                    <TableCell>Reporte de Existencias</TableCell>
-                    <TableCell>Usuario {index + 1}</TableCell>
-                    <TableCell>Almacén Principal</TableCell>
+                    <TableCell>{report.date}</TableCell>
+                    <TableCell>{report.type}</TableCell>
+                    <TableCell>{report.user}</TableCell>
+                    <TableCell>{selectedWarehouse}</TableCell>
                     <TableCell>
                       <span className="px-3 py-1 rounded-full bg-green-100 text-green-800">
-                        Completado
+                        {report.status}
                       </span>
                     </TableCell>
                   </TableRow>
