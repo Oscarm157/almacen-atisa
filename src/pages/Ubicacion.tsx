@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { MetricCard } from "@/components/MetricCard";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
-import { Search } from "lucide-react";
+import { Search, Pencil, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const Ubicacion = () => {
@@ -33,70 +33,91 @@ const Ubicacion = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <MetricCard
-            title="Total Ubicaciones"
-            value="24"
-            bgColor="bg-[#33C3F0]"
-            onInfoClick={() => handleMoreInfo("Total Ubicaciones")}
-          />
-          <MetricCard
-            title="Ubicaciones Ocupadas"
-            value="18"
-            bgColor="bg-[#8E9196]"
-            onInfoClick={() => handleMoreInfo("Ubicaciones Ocupadas")}
-          />
-          <MetricCard
-            title="Ubicaciones Disponibles"
-            value="6"
-            bgColor="bg-[#4CAF50]"
-            onInfoClick={() => handleMoreInfo("Ubicaciones Disponibles")}
-          />
-          <MetricCard
-            title="Insumos sin Ubicación"
-            value="3"
-            bgColor="bg-[#F97316]"
-            onInfoClick={() => handleMoreInfo("Insumos sin Ubicación")}
-          />
+          <div className="bg-[#E6F4FF] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2">Pasillo</h3>
+            <div className="bg-[#33C3F0] text-white p-3 rounded">
+              Pasillo 1
+            </div>
+          </div>
+          <div className="bg-[#E6F4FF] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2">Rack</h3>
+            <div className="bg-[#33C3F0] text-white p-3 rounded">
+              Rack 1
+            </div>
+          </div>
+          <div className="bg-[#E6F4FF] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2">Estante</h3>
+            <div className="bg-[#33C3F0] text-white p-3 rounded">
+              01-C-07
+            </div>
+          </div>
+          <div className="bg-[#E6F4FF] p-4 rounded-lg">
+            <h3 className="text-sm font-medium mb-2">Insumo</h3>
+            <div className="bg-[#33C3F0] text-white p-3 rounded">
+              10101001 – Insumo X
+            </div>
+          </div>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6">
-          <div className="flex gap-4 mb-6">
-            <div className="relative flex-1">
+          <div className="flex justify-between items-center mb-6">
+            <div className="relative flex-1 max-w-md">
               <Search className="absolute left-2.5 top-2.5 h-5 w-5 text-gray-500" />
               <Input
                 placeholder="Buscar ubicación o insumo..."
                 className="pl-10"
               />
             </div>
+            <Button className="bg-black text-white hover:bg-black/90">
+              <Plus className="mr-2 h-4 w-4" />
+              Agregar ubicación
+            </Button>
           </div>
 
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
-                  <TableHead className="text-white">Código</TableHead>
-                  <TableHead className="text-white">Ubicación</TableHead>
-                  <TableHead className="text-white">Insumo</TableHead>
-                  <TableHead className="text-white">Cantidad</TableHead>
-                  <TableHead className="text-white">Estado</TableHead>
+                <TableRow className="bg-[#0F4C75] hover:bg-[#0F4C75]">
+                  <TableHead className="text-white">Encabezados</TableHead>
+                  <TableHead className="text-white"></TableHead>
+                  <TableHead className="text-white"></TableHead>
+                  <TableHead className="text-white"></TableHead>
+                  <TableHead className="text-white"></TableHead>
+                  <TableHead className="text-white"></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {[...Array(5)].map((_, index) => (
-                  <TableRow key={index}>
-                    <TableCell>A-{index + 1}</TableCell>
-                    <TableCell>Pasillo {index + 1}</TableCell>
-                    <TableCell>Insumo {index + 1}</TableCell>
-                    <TableCell>{(index + 1) * 10}</TableCell>
+                {[...Array(3)].map((_, index) => (
+                  <TableRow key={index} className="bg-gray-100">
                     <TableCell>
-                      <span className="px-2 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                        Activo
-                      </span>
+                      <Pencil className="h-4 w-4 text-gray-500" />
                     </TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 ))}
+                <TableRow className="bg-[#0F4C75] text-white">
+                  <TableCell>Totales</TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
               </TableBody>
             </Table>
+          </div>
+
+          <div className="flex justify-end gap-4 mt-6">
+            <Button className="bg-black text-white hover:bg-black/90">
+              Guardar
+            </Button>
+            <Button variant="outline" className="border-black text-black hover:bg-black/10">
+              Cancelar
+            </Button>
           </div>
         </div>
       </div>
