@@ -10,15 +10,12 @@ const Etiquetas = () => {
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
-      <div className="flex-1 p-4">
-        <div className="flex justify-end items-center mb-2">
-          <UserProfile />
-        </div>
-
+      <div className="flex-1 ml-64 p-4">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-[#1c1c1c]">
             Generación de Etiquetas
           </h2>
+          <UserProfile />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

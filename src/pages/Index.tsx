@@ -32,11 +32,10 @@ const Index = () => {
       <Sidebar />
       <div className="flex-1 ml-64">
         <div className="sticky top-0 z-10 bg-gray-50 p-4">
-          <div className="flex justify-end items-center mb-2">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-[#1c1c1c]">Datos Generales</h2>
             <UserProfile />
           </div>
-          
-          <h2 className="text-2xl font-bold text-[#1c1c1c] mb-6">Datos Generales</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <MetricCard

@@ -18,13 +18,10 @@ const Conteos = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
-      <div className="flex-1 p-4">
-        <div className="flex justify-end items-center mb-2">
-          <UserProfile />
-        </div>
-
+      <div className="flex-1 ml-64 p-4">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-[#1c1c1c]">Conteos de Inventario</h2>
+          <UserProfile />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
