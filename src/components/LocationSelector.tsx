@@ -7,10 +7,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 export const LocationSelector = () => {
   const [value, setValue] = useState("Prisma XVIII");
-  const [isAnimating, setIsAnimating] = useState(false);
+  const { toast } = useToast();
   
   const locations = [
     "Prisma XVIII",
@@ -19,9 +20,11 @@ export const LocationSelector = () => {
 
   const handleValueChange = (newValue: string) => {
     setValue(newValue);
-    setIsAnimating(true);
-    // Reset animation state after animation completes
-    setTimeout(() => setIsAnimating(false), 300);
+    toast({
+      title: "Almacén cambiado",
+      description: `Cambiando a ${newValue}...`,
+      duration: 2000,
+    });
   };
 
   return (
@@ -43,13 +46,7 @@ export const LocationSelector = () => {
           ))}
         </SelectContent>
       </Select>
-      {isAnimating && (
-        <div className="absolute top-4 right-4 bg-black/10 backdrop-blur-sm rounded-lg px-4 py-2 animate-fade-in">
-          <div className="text-white text-sm">
-            Cargando {value}...
-          </div>
-        </div>
-      )}
     </div>
   );
 };
+
