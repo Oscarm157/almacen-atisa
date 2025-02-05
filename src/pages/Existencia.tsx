@@ -12,7 +12,7 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@
 import { Search, Pencil, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
-const Index = () => {
+const Existencia = () => {
   const { toast } = useToast();
 
   const showMoreInfo = (metric: string) => {
@@ -110,7 +110,7 @@ const Index = () => {
               </div>
               <Button className="bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300 rounded-lg shadow-sm">
                 <Plus className="mr-2 h-5 w-5" />
-                Agregar ubicación
+                Agregar insumo
               </Button>
             </div>
 
@@ -171,4 +171,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Existencia;
