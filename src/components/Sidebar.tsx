@@ -1,12 +1,21 @@
+
 import { Link } from "react-router-dom";
+import { 
+  PackageSearch, 
+  ClipboardList, 
+  BarChart3, 
+  ArrowLeftRight, 
+  MapPin, 
+  Tags 
+} from "lucide-react";
 
 const menuItems = [
-  { label: "Existencia", path: "/" },
-  { label: "Conteos", path: "/conteos" },
-  { label: "Reportes", path: "/reportes" },
-  { label: "Máximos & Mínimos", path: "/maxmin" },
-  { label: "Ubicación", path: "/ubicacion" },
-  { label: "Etiquetas", path: "/etiquetas" },
+  { label: "Existencia", path: "/", icon: PackageSearch },
+  { label: "Conteos", path: "/conteos", icon: ClipboardList },
+  { label: "Reportes", path: "/reportes", icon: BarChart3 },
+  { label: "Máximos & Mínimos", path: "/maxmin", icon: ArrowLeftRight },
+  { label: "Ubicación", path: "/ubicacion", icon: MapPin },
+  { label: "Etiquetas", path: "/etiquetas", icon: Tags },
 ];
 
 export const Sidebar = () => {
@@ -25,8 +34,9 @@ export const Sidebar = () => {
             <li key={item.path}>
               <Link
                 to={item.path}
-                className="block p-2 hover:bg-gray-800 rounded transition-colors text-lg font-bold"
+                className="block p-2 hover:bg-gray-800 rounded transition-colors text-lg font-bold flex items-center gap-3"
               >
+                <item.icon className="w-5 h-5" />
                 {item.label}
               </Link>
             </li>
