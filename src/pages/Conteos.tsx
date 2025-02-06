@@ -1,3 +1,4 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
@@ -16,18 +17,18 @@ const warehouseData = {
       totalInsumos: "28,696"
     },
     teorico: [
-      { dato: "Medicamentos", campo1: "125", campo2: "98", campo3: "27" },
-      { dato: "Material de curación", campo1: "234", campo2: "200", campo3: "34" },
-      { dato: "Instrumental", campo1: "89", campo2: "85", campo3: "4" },
-      { dato: "Equipo médico", campo1: "45", campo2: "42", campo3: "3" },
-      { dato: "Insumos generales", campo1: "167", campo2: "150", campo3: "17" }
+      { dato: "Insumo A", campo1: "125", campo2: "98", campo3: "27" },
+      { dato: "Insumo B", campo1: "234", campo2: "200", campo3: "34" },
+      { dato: "Insumo C", campo1: "89", campo2: "85", campo3: "4" },
+      { dato: "Insumo D", campo1: "45", campo2: "42", campo3: "3" },
+      { dato: "Insumo E", campo1: "167", campo2: "150", campo3: "17" }
     ],
     fisico: [
-      { dato: "Medicamentos", campo1: "130", campo2: "100", campo3: "30" },
-      { dato: "Material de curación", campo1: "245", campo2: "210", campo3: "35" },
-      { dato: "Instrumental", campo1: "92", campo2: "88", campo3: "4" },
-      { dato: "Equipo médico", campo1: "48", campo2: "44", campo3: "4" },
-      { dato: "Insumos generales", campo1: "175", campo2: "155", campo3: "20" }
+      { dato: "Insumo A", campo1: "130", campo2: "100", campo3: "30" },
+      { dato: "Insumo B", campo1: "245", campo2: "210", campo3: "35" },
+      { dato: "Insumo C", campo1: "92", campo2: "88", campo3: "4" },
+      { dato: "Insumo D", campo1: "48", campo2: "44", campo3: "4" },
+      { dato: "Insumo E", campo1: "175", campo2: "155", campo3: "20" }
     ]
   },
   "Bronce II": {
@@ -38,18 +39,18 @@ const warehouseData = {
       totalInsumos: "22,000"
     },
     teorico: [
-      { dato: "Medicamentos", campo1: "200", campo2: "180", campo3: "20" },
-      { dato: "Material de curación", campo1: "300", campo2: "280", campo3: "20" },
-      { dato: "Instrumental", campo1: "150", campo2: "140", campo3: "10" },
-      { dato: "Equipo médico", campo1: "80", campo2: "75", campo3: "5" },
-      { dato: "Insumos generales", campo1: "250", campo2: "230", campo3: "20" }
+      { dato: "Insumo A", campo1: "200", campo2: "180", campo3: "20" },
+      { dato: "Insumo B", campo1: "300", campo2: "280", campo3: "20" },
+      { dato: "Insumo C", campo1: "150", campo2: "140", campo3: "10" },
+      { dato: "Insumo D", campo1: "80", campo2: "75", campo3: "5" },
+      { dato: "Insumo E", campo1: "250", campo2: "230", campo3: "20" }
     ],
     fisico: [
-      { dato: "Medicamentos", campo1: "210", campo2: "190", campo3: "20" },
-      { dato: "Material de curación", campo1: "310", campo2: "290", campo3: "20" },
-      { dato: "Instrumental", campo1: "155", campo2: "145", campo3: "10" },
-      { dato: "Equipo médico", campo1: "85", campo2: "80", campo3: "5" },
-      { dato: "Insumos generales", campo1: "260", campo2: "240", campo3: "20" }
+      { dato: "Insumo A", campo1: "210", campo2: "190", campo3: "20" },
+      { dato: "Insumo B", campo1: "310", campo2: "290", campo3: "20" },
+      { dato: "Insumo C", campo1: "155", campo2: "145", campo3: "10" },
+      { dato: "Insumo D", campo1: "85", campo2: "80", campo3: "5" },
+      { dato: "Insumo E", campo1: "260", campo2: "240", campo3: "20" }
     ]
   },
   "Link": {
@@ -60,18 +61,18 @@ const warehouseData = {
       totalInsumos: "17,020"
     },
     teorico: [
-      { dato: "Medicamentos", campo1: "150", campo2: "140", campo3: "10" },
-      { dato: "Material de curación", campo1: "280", campo2: "260", campo3: "20" },
-      { dato: "Instrumental", campo1: "120", campo2: "110", campo3: "10" },
-      { dato: "Equipo médico", campo1: "60", campo2: "55", campo3: "5" },
-      { dato: "Insumos generales", campo1: "200", campo2: "190", campo3: "10" }
+      { dato: "Insumo A", campo1: "150", campo2: "140", campo3: "10" },
+      { dato: "Insumo B", campo1: "280", campo2: "260", campo3: "20" },
+      { dato: "Insumo C", campo1: "120", campo2: "110", campo3: "10" },
+      { dato: "Insumo D", campo1: "60", campo2: "55", campo3: "5" },
+      { dato: "Insumo E", campo1: "200", campo2: "190", campo3: "10" }
     ],
     fisico: [
-      { dato: "Medicamentos", campo1: "155", campo2: "145", campo3: "10" },
-      { dato: "Material de curación", campo1: "285", campo2: "265", campo3: "20" },
-      { dato: "Instrumental", campo1: "125", campo2: "115", campo3: "10" },
-      { dato: "Equipo médico", campo1: "65", campo2: "60", campo3: "5" },
-      { dato: "Insumos generales", campo1: "205", campo2: "195", campo3: "10" }
+      { dato: "Insumo A", campo1: "155", campo2: "145", campo3: "10" },
+      { dato: "Insumo B", campo1: "285", campo2: "265", campo3: "20" },
+      { dato: "Insumo C", campo1: "125", campo2: "115", campo3: "10" },
+      { dato: "Insumo D", campo1: "65", campo2: "60", campo3: "5" },
+      { dato: "Insumo E", campo1: "205", campo2: "195", campo3: "10" }
     ]
   },
   "Hottah": {
@@ -82,18 +83,18 @@ const warehouseData = {
       totalInsumos: "12,600"
     },
     teorico: [
-      { dato: "Medicamentos", campo1: "100", campo2: "90", campo3: "10" },
-      { dato: "Material de curación", campo1: "180", campo2: "170", campo3: "10" },
-      { dato: "Instrumental", campo1: "80", campo2: "75", campo3: "5" },
-      { dato: "Equipo médico", campo1: "40", campo2: "35", campo3: "5" },
-      { dato: "Insumos generales", campo1: "150", campo2: "140", campo3: "10" }
+      { dato: "Insumo A", campo1: "100", campo2: "90", campo3: "10" },
+      { dato: "Insumo B", campo1: "180", campo2: "170", campo3: "10" },
+      { dato: "Insumo C", campo1: "80", campo2: "75", campo3: "5" },
+      { dato: "Insumo D", campo1: "40", campo2: "35", campo3: "5" },
+      { dato: "Insumo E", campo1: "150", campo2: "140", campo3: "10" }
     ],
     fisico: [
-      { dato: "Medicamentos", campo1: "105", campo2: "95", campo3: "10" },
-      { dato: "Material de curación", campo1: "185", campo2: "175", campo3: "10" },
-      { dato: "Instrumental", campo1: "85", campo2: "80", campo3: "5" },
-      { dato: "Equipo médico", campo1: "45", campo2: "40", campo3: "5" },
-      { dato: "Insumos generales", campo1: "155", campo2: "145", campo3: "10" }
+      { dato: "Insumo A", campo1: "105", campo2: "95", campo3: "10" },
+      { dato: "Insumo B", campo1: "185", campo2: "175", campo3: "10" },
+      { dato: "Insumo C", campo1: "85", campo2: "80", campo3: "5" },
+      { dato: "Insumo D", campo1: "45", campo2: "40", campo3: "5" },
+      { dato: "Insumo E", campo1: "155", campo2: "145", campo3: "10" }
     ]
   },
   "Prisma X": {
@@ -104,18 +105,18 @@ const warehouseData = {
       totalInsumos: "14,850"
     },
     teorico: [
-      { dato: "Medicamentos", campo1: "120", campo2: "110", campo3: "10" },
-      { dato: "Material de curación", campo1: "220", campo2: "200", campo3: "20" },
-      { dato: "Instrumental", campo1: "90", campo2: "85", campo3: "5" },
-      { dato: "Equipo médico", campo1: "50", campo2: "45", campo3: "5" },
-      { dato: "Insumos generales", campo1: "180", campo2: "170", campo3: "10" }
+      { dato: "Insumo A", campo1: "120", campo2: "110", campo3: "10" },
+      { dato: "Insumo B", campo1: "220", campo2: "200", campo3: "20" },
+      { dato: "Insumo C", campo1: "90", campo2: "85", campo3: "5" },
+      { dato: "Insumo D", campo1: "50", campo2: "45", campo3: "5" },
+      { dato: "Insumo E", campo1: "180", campo2: "170", campo3: "10" }
     ],
     fisico: [
-      { dato: "Medicamentos", campo1: "125", campo2: "115", campo3: "10" },
-      { dato: "Material de curación", campo1: "225", campo2: "205", campo3: "20" },
-      { dato: "Instrumental", campo1: "95", campo2: "90", campo3: "5" },
-      { dato: "Equipo médico", campo1: "55", campo2: "50", campo3: "5" },
-      { dato: "Insumos generales", campo1: "185", campo2: "175", campo3: "10" }
+      { dato: "Insumo A", campo1: "125", campo2: "115", campo3: "10" },
+      { dato: "Insumo B", campo1: "225", campo2: "205", campo3: "20" },
+      { dato: "Insumo C", campo1: "95", campo2: "90", campo3: "5" },
+      { dato: "Insumo D", campo1: "55", campo2: "50", campo3: "5" },
+      { dato: "Insumo E", campo1: "185", campo2: "175", campo3: "10" }
     ]
   }
 };
