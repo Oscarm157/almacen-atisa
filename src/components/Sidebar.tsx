@@ -44,6 +44,7 @@ export const Sidebar = () => {
       <LogoSection />
       
       <div className="mb-8">
+        <label className="block text-sm font-medium mb-2">Almacén</label>
         <Select value={selectedWarehouse} onValueChange={setSelectedWarehouse}>
           <SelectTrigger className="w-full bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300">
             <SelectValue placeholder="Seleccionar Almacén" />
