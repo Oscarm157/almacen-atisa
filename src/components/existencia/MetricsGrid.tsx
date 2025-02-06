@@ -40,7 +40,7 @@ export const MetricsGrid = ({
       />
       <MetricCard
         title="Existencia en importe"
-        value={`$${existenciaImporte.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}`}
+        value={`$${existenciaImporte.toLocaleString()}`}
         bgColor="bg-[#4CAF50]"
         onInfoClick={() => showMoreInfo("importe")}
       />
