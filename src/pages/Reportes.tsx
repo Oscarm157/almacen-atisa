@@ -153,7 +153,7 @@ const Reportes = () => {
                     <TableCell>{report.date}</TableCell>
                     <TableCell>{report.type}</TableCell>
                     <TableCell>{report.user}</TableCell>
-                    <TableCell>{currentWarehouse}</TableCell>
+                    <TableCell>{selectedWarehouse}</TableCell>
                     <TableCell>
                       <span className="px-3 py-1 rounded-full bg-green-100 text-green-800">
                         {report.status}
