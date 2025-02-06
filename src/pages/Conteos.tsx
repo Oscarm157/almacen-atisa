@@ -3,7 +3,6 @@ import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { useWarehouse } from "@/context/WarehouseContext";
-import { LocationSelector } from "@/components/LocationSelector";
 import { ConteoMetrics } from "@/components/conteos/ConteoMetrics";
 import { ConteoTables } from "@/components/conteos/ConteoTables";
 import { useState } from "react";
@@ -133,15 +132,6 @@ const Conteos = () => {
     });
   };
 
-  const handleWarehouseChange = (warehouse: string) => {
-    setCurrentWarehouse(warehouse);
-    toast({
-      description: `Cambiando a datos de ${warehouse}`,
-    });
-  };
-
-  const [currentWarehouse, setCurrentWarehouse] = useState("PIP Sur");
-
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
@@ -150,8 +140,6 @@ const Conteos = () => {
           <h2 className="text-2xl font-bold text-[#1c1c1c]">Conteos de Inventario</h2>
           <UserProfile />
         </div>
-
-        <LocationSelector onWarehouseChange={handleWarehouseChange} />
 
         <ConteoMetrics 
           metrics={currentData.metrics} 

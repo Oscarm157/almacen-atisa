@@ -64,11 +64,6 @@ const warehouseData = {
 const MaxMin = () => {
   const { selectedWarehouse } = useWarehouse();
   const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
-  const [selectedWarehouseLocal, setSelectedWarehouseLocal] = useState("PIP Sur");
-
-  const handleWarehouseChange = (warehouse: string) => {
-    setSelectedWarehouseLocal(warehouse);
-  };
 
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
@@ -79,10 +74,6 @@ const MaxMin = () => {
             Máximos y Mínimos
           </h2>
           <UserProfile />
-        </div>
-
-        <div className="mb-6">
-          <LocationSelector onWarehouseChange={handleWarehouseChange} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
