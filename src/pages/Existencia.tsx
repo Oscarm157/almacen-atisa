@@ -1,4 +1,3 @@
-
 import { useToast } from "@/components/ui/use-toast";
 import { Sidebar } from "@/components/Sidebar";
 import { MetricCard } from "@/components/MetricCard";
@@ -11,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, Pencil, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { LocationSelector } from "@/components/LocationSelector";
 import { useState } from "react";
 
 const warehouseData = {
@@ -110,10 +108,6 @@ const Existencia = () => {
             <UserProfile />
           </div>
 
-          <div className="mb-6">
-            <LocationSelector onWarehouseChange={handleWarehouseChange} />
-          </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <MetricCard
               title="Insumos registrados"
@@ -239,4 +233,3 @@ const Existencia = () => {
 };
 
 export default Existencia;
-

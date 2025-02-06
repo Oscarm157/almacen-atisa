@@ -8,7 +8,8 @@ import {
   MapPin, 
   Tags 
 } from "lucide-react";
-import { LocationSelector } from "@/components/LocationSelector";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useState } from "react";
 
 const menuItems = [
   { label: "Existencia", path: "/", icon: PackageSearch },
@@ -18,6 +19,8 @@ const menuItems = [
   { label: "Ubicación", path: "/ubicacion", icon: MapPin },
   { label: "Etiquetas", path: "/etiquetas", icon: Tags },
 ];
+
+const warehouseOptions = ["PIP Sur", "Bronce II", "Link", "Hottah", "Prisma X"];
 
 const LogoSection = () => (
   <div className="mb-8 p-2 rounded-lg bg-[#c42c30]">
@@ -34,13 +37,25 @@ const LogoSection = () => (
 
 export const Sidebar = () => {
   const location = useLocation();
+  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
 
   return (
     <div className="fixed top-0 left-0 bg-black text-white w-64 h-screen p-4 overflow-y-auto">
       <LogoSection />
       
       <div className="mb-8">
-        <LocationSelector />
+        <Select value={selectedWarehouse} onValueChange={setSelectedWarehouse}>
+          <SelectTrigger className="w-full bg-[#ea384c] text-white hover:bg-[#d42d3d] transition-all duration-300">
+            <SelectValue placeholder="Seleccionar Almacén" />
+          </SelectTrigger>
+          <SelectContent>
+            {warehouseOptions.map((warehouse) => (
+              <SelectItem key={warehouse} value={warehouse}>
+                {warehouse}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <nav>

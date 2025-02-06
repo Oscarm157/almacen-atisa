@@ -1,12 +1,11 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, BarChart2, FileDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { LocationSelector } from "@/components/LocationSelector";
 import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 const warehouseData = {
   "PIP Sur": {
@@ -67,26 +66,24 @@ const warehouseData = {
 };
 
 const Reportes = () => {
-  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
-  const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
+  const { toast } = useToast();
+  const [currentWarehouse, setCurrentWarehouse] = useState("PIP Sur");
+  const currentData = warehouseData[currentWarehouse as keyof typeof warehouseData];
 
-  const handleWarehouseChange = (warehouse: string) => {
-    setSelectedWarehouse(warehouse);
+  const handleMoreInfo = (section: string) => {
+    toast({
+      title: "Más información",
+      description: `Mostrando más información sobre ${section} en ${currentWarehouse}`,
+    });
   };
 
   return (
-    <div className="flex min-h-screen bg-[#ffffff]">
+    <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1 ml-64 p-4">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-[#1c1c1c]">
-            Reportes de Inventario
-          </h2>
+          <h2 className="text-2xl font-bold text-[#1c1c1c]">Reportes de Inventario</h2>
           <UserProfile />
-        </div>
-
-        <div className="mb-6">
-          <LocationSelector onWarehouseChange={handleWarehouseChange} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -155,7 +152,7 @@ const Reportes = () => {
                     <TableCell>{report.date}</TableCell>
                     <TableCell>{report.type}</TableCell>
                     <TableCell>{report.user}</TableCell>
-                    <TableCell>{selectedWarehouse}</TableCell>
+                    <TableCell>{currentWarehouse}</TableCell>
                     <TableCell>
                       <span className="px-3 py-1 rounded-full bg-green-100 text-green-800">
                         {report.status}

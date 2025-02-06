@@ -1,7 +1,5 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
-import { LocationSelector } from "@/components/LocationSelector";
 import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, Plus, Printer, QrCode } from "lucide-react";
@@ -123,10 +121,6 @@ const warehouseData: LabelData = {
 const Etiquetas = () => {
   const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
 
-  const handleWarehouseChange = (warehouse: string) => {
-    setSelectedWarehouse(warehouse);
-  };
-
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
@@ -236,4 +230,3 @@ const Etiquetas = () => {
 };
 
 export default Etiquetas;
-
