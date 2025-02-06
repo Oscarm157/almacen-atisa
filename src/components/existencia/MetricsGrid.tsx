@@ -28,25 +28,25 @@ export const MetricsGrid = ({
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <MetricCard
         title="Insumos registrados"
-        value={insumosRegistrados.toString()}
+        value={Math.round(insumosRegistrados)}
         bgColor="bg-[#33C3F0]"
         onInfoClick={() => showMoreInfo("insumos")}
       />
       <MetricCard
         title="Existencia en cantidad"
-        value={existenciaCantidad.toString()}
+        value={Math.round(existenciaCantidad)}
         bgColor="bg-[#8E9196]"
         onInfoClick={() => showMoreInfo("existencia")}
       />
       <MetricCard
         title="Existencia en importe"
-        value={`$${existenciaImporte.toLocaleString()}`}
+        value={`$${Math.round(existenciaImporte)}`}
         bgColor="bg-[#4CAF50]"
         onInfoClick={() => showMoreInfo("importe")}
       />
       <MetricCard
         title="Movimientos del día"
-        value={movimientosDia.toString()}
+        value={Math.round(movimientosDia)}
         bgColor="bg-[#F97316]"
         onInfoClick={() => showMoreInfo("movimientos")}
       />
