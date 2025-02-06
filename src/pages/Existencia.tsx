@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, Pencil, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useWarehouse } from "@/context/WarehouseContext";
 
 const warehouseData = {
   "PIP Sur": {
@@ -77,7 +77,7 @@ const warehouseData = {
 
 const Existencia = () => {
   const { toast } = useToast();
-  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
+  const { selectedWarehouse } = useWarehouse();
   const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
 
   const showMoreInfo = (metric: string) => {
@@ -85,10 +85,6 @@ const Existencia = () => {
       title: "Más información",
       description: `Mostrando más información sobre ${metric}`,
     });
-  };
-
-  const handleWarehouseChange = (warehouse: string) => {
-    setSelectedWarehouse(warehouse);
   };
 
   const chartColors = ["#c42c30", "#1c1c1c"];

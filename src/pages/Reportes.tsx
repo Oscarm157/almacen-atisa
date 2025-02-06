@@ -1,11 +1,12 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, BarChart2, FileDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { useWarehouse } from "@/context/WarehouseContext";
 
 const warehouseData = {
   "PIP Sur": {
@@ -67,13 +68,13 @@ const warehouseData = {
 
 const Reportes = () => {
   const { toast } = useToast();
-  const [currentWarehouse, setCurrentWarehouse] = useState("PIP Sur");
-  const currentData = warehouseData[currentWarehouse as keyof typeof warehouseData];
+  const { selectedWarehouse } = useWarehouse();
+  const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
 
   const handleMoreInfo = (section: string) => {
     toast({
       title: "Más información",
-      description: `Mostrando más información sobre ${section} en ${currentWarehouse}`,
+      description: `Mostrando más información sobre ${section} en ${selectedWarehouse}`,
     });
   };
 

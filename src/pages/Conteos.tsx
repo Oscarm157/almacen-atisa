@@ -1,10 +1,10 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { MetricCard } from "@/components/MetricCard";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
+import { useWarehouse } from "@/context/WarehouseContext";
 import { LocationSelector } from "@/components/LocationSelector";
 import { useState } from "react";
 
@@ -123,13 +123,13 @@ const warehouseData = {
 
 const Conteos = () => {
   const { toast } = useToast();
-  const [currentWarehouse, setCurrentWarehouse] = useState("PIP Sur");
-  const currentData = warehouseData[currentWarehouse as keyof typeof warehouseData];
+  const { selectedWarehouse } = useWarehouse();
+  const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
 
   const handleMoreInfo = (section: string) => {
     toast({
       title: "Más información",
-      description: `Mostrando más información sobre ${section} en ${currentWarehouse}`,
+      description: `Mostrando más información sobre ${section} en ${selectedWarehouse}`,
     });
   };
 
@@ -140,6 +140,8 @@ const Conteos = () => {
     });
   };
 
+  const [currentWarehouse, setCurrentWarehouse] = useState("PIP Sur");
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
@@ -149,9 +151,7 @@ const Conteos = () => {
           <UserProfile />
         </div>
 
-        <div className="mb-6">
-          <LocationSelector onWarehouseChange={handleWarehouseChange} />
-        </div>
+        <LocationSelector onWarehouseChange={handleWarehouseChange} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricCard
@@ -181,7 +181,6 @@ const Conteos = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          {/* Teórico/Sistema Table */}
           <div className="bg-white rounded-lg shadow overflow-hidden">
             <h3 className="text-lg font-semibold p-4 border-b">Conteos - Teórico/Sistema</h3>
             <div className="overflow-x-auto">
@@ -220,7 +219,6 @@ const Conteos = () => {
             </div>
           </div>
 
-          {/* Físico Table */}
           <div className="bg-white rounded-lg shadow overflow-hidden">
             <h3 className="text-lg font-semibold p-4 border-b">Físico</h3>
             <div className="overflow-x-auto">

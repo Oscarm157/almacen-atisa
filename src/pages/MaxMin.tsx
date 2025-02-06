@@ -1,4 +1,3 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@
 import { Search, AlertTriangle, ArrowUpDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { LocationSelector } from "@/components/LocationSelector";
+import { useWarehouse } from "@/context/WarehouseContext";
 import { useState } from "react";
 
 const warehouseData = {
@@ -62,11 +62,12 @@ const warehouseData = {
 };
 
 const MaxMin = () => {
-  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
+  const { selectedWarehouse } = useWarehouse();
   const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
+  const [selectedWarehouseLocal, setSelectedWarehouseLocal] = useState("PIP Sur");
 
   const handleWarehouseChange = (warehouse: string) => {
-    setSelectedWarehouse(warehouse);
+    setSelectedWarehouseLocal(warehouse);
   };
 
   return (

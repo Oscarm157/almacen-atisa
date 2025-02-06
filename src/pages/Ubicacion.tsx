@@ -6,10 +6,11 @@ import { useState, useEffect } from "react";
 import { LocationSelectors } from "@/components/LocationSelectors";
 import { LocationTable } from "@/components/LocationTable";
 import { warehouseData } from "@/data/warehouseData";
+import { useWarehouse } from "@/context/WarehouseContext";
 
 const Ubicacion = () => {
   const { toast } = useToast();
-  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
+  const { selectedWarehouse } = useWarehouse();
   const [selectedPasillo, setPasillo] = useState("1");
   const [selectedRack, setRack] = useState("1");
   const [selectedEstante, setEstante] = useState("");
