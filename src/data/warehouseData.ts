@@ -55,7 +55,7 @@ export const warehouseData: WarehouseData = {
       [333, 222, 111, 999, 888],
     ],
   },
-  Hottah: {
+  "Hottah": {
     pasillos: [1, 2, 3, 4],
     racks: [1, 2, 3, 4, 5, 6],
     estantes: ["07-A-01", "07-B-01", "07-C-01", "08-A-01", "08-B-01"],
