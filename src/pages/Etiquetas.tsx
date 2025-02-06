@@ -1,10 +1,11 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, Plus, Printer, QrCode } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useWarehouse } from "@/context/WarehouseContext";
 
 interface LabelData {
   [key: string]: {
@@ -119,7 +120,7 @@ const warehouseData: LabelData = {
 };
 
 const Etiquetas = () => {
-  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
+  const { selectedWarehouse } = useWarehouse();
 
   return (
     <div className="flex min-h-screen bg-[#ffffff]">

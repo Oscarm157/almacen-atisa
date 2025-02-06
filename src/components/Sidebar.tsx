@@ -9,7 +9,7 @@ import {
   Tags 
 } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState } from "react";
+import { useWarehouse } from "@/context/WarehouseContext";
 
 const menuItems = [
   { label: "Existencia", path: "/", icon: PackageSearch },
@@ -37,7 +37,7 @@ const LogoSection = () => (
 
 export const Sidebar = () => {
   const location = useLocation();
-  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
+  const { selectedWarehouse, setSelectedWarehouse } = useWarehouse();
 
   return (
     <div className="fixed top-0 left-0 bg-black text-white w-64 h-screen p-4 overflow-y-auto">
