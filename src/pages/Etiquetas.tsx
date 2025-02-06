@@ -1,3 +1,4 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { LocationSelector } from "@/components/LocationSelector";
@@ -5,15 +6,134 @@ import { Button } from "@/components/ui/button";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { Search, Plus, Printer, QrCode } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+
+interface LabelData {
+  [key: string]: {
+    etiquetas: {
+      id: string;
+      tipo: string;
+      descripcion: string;
+      fecha: string;
+      estado: string;
+    }[];
+  };
+}
+
+const warehouseData: LabelData = {
+  "PIP Sur": {
+    etiquetas: [
+      {
+        id: "ETQ-1001",
+        tipo: "Código de Barras",
+        descripcion: "Etiqueta para Insumo PIP-1",
+        fecha: "2024-03-15",
+        estado: "Activa"
+      },
+      {
+        id: "ETQ-1002",
+        tipo: "Código QR",
+        descripcion: "Etiqueta para Insumo PIP-2",
+        fecha: "2024-03-14",
+        estado: "Activa"
+      },
+      {
+        id: "ETQ-1003",
+        tipo: "Código de Barras",
+        descripcion: "Etiqueta para Insumo PIP-3",
+        fecha: "2024-03-13",
+        estado: "Inactiva"
+      }
+    ]
+  },
+  "Bronce II": {
+    etiquetas: [
+      {
+        id: "ETQ-2001",
+        tipo: "Código QR",
+        descripcion: "Etiqueta para Material B2-1",
+        fecha: "2024-03-15",
+        estado: "Activa"
+      },
+      {
+        id: "ETQ-2002",
+        tipo: "Código de Barras",
+        descripcion: "Etiqueta para Material B2-2",
+        fecha: "2024-03-14",
+        estado: "Activa"
+      }
+    ]
+  },
+  "Link": {
+    etiquetas: [
+      {
+        id: "ETQ-3001",
+        tipo: "Código QR",
+        descripcion: "Etiqueta para Producto L-1",
+        fecha: "2024-03-15",
+        estado: "Activa"
+      },
+      {
+        id: "ETQ-3002",
+        tipo: "Código de Barras",
+        descripcion: "Etiqueta para Producto L-2",
+        fecha: "2024-03-14",
+        estado: "Inactiva"
+      },
+      {
+        id: "ETQ-3003",
+        tipo: "Código QR",
+        descripcion: "Etiqueta para Producto L-3",
+        fecha: "2024-03-13",
+        estado: "Activa"
+      }
+    ]
+  },
+  "Hottah": {
+    etiquetas: [
+      {
+        id: "ETQ-4001",
+        tipo: "Código de Barras",
+        descripcion: "Etiqueta para Item H-1",
+        fecha: "2024-03-15",
+        estado: "Activa"
+      }
+    ]
+  },
+  "Prisma X": {
+    etiquetas: [
+      {
+        id: "ETQ-5001",
+        tipo: "Código QR",
+        descripcion: "Etiqueta para Componente P-1",
+        fecha: "2024-03-15",
+        estado: "Activa"
+      },
+      {
+        id: "ETQ-5002",
+        tipo: "Código de Barras",
+        descripcion: "Etiqueta para Componente P-2",
+        fecha: "2024-03-14",
+        estado: "Activa"
+      }
+    ]
+  }
+};
 
 const Etiquetas = () => {
+  const [selectedWarehouse, setSelectedWarehouse] = useState("PIP Sur");
+
+  const handleWarehouseChange = (warehouse: string) => {
+    setSelectedWarehouse(warehouse);
+  };
+
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
       <div className="flex-1 ml-64 p-4">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-[#1c1c1c]">
-            Generación de Etiquetas
+            Generación de Etiquetas - {selectedWarehouse}
           </h2>
           <UserProfile />
         </div>
@@ -84,17 +204,19 @@ const Etiquetas = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {[...Array(5)].map((_, index) => (
-                  <TableRow key={index} className="hover:bg-gray-50">
-                    <TableCell>ETQ-{1000 + index}</TableCell>
+                {warehouseData[selectedWarehouse].etiquetas.map((etiqueta) => (
+                  <TableRow key={etiqueta.id} className="hover:bg-gray-50">
+                    <TableCell>{etiqueta.id}</TableCell>
+                    <TableCell>{etiqueta.tipo}</TableCell>
+                    <TableCell>{etiqueta.descripcion}</TableCell>
+                    <TableCell>{new Date(etiqueta.fecha).toLocaleDateString()}</TableCell>
                     <TableCell>
-                      {index % 2 === 0 ? "Código de Barras" : "Código QR"}
-                    </TableCell>
-                    <TableCell>Etiqueta para Insumo {index + 1}</TableCell>
-                    <TableCell>{new Date().toLocaleDateString()}</TableCell>
-                    <TableCell>
-                      <span className="px-3 py-1 rounded-full bg-green-100 text-green-800">
-                        Activa
+                      <span className={`px-3 py-1 rounded-full ${
+                        etiqueta.estado === 'Activa' 
+                          ? 'bg-green-100 text-green-800' 
+                          : 'bg-red-100 text-red-800'
+                      }`}>
+                        {etiqueta.estado}
                       </span>
                     </TableCell>
                     <TableCell>
@@ -114,3 +236,4 @@ const Etiquetas = () => {
 };
 
 export default Etiquetas;
+
