@@ -13,4 +13,6 @@ export interface WarehouseData {
   "PIP Sur": LocationData["PIP Sur"];
   "Bronce II": LocationData["Bronce II"];
   "Link": LocationData["Link"];
+  "Hottah": LocationData["Hottah"];
+  "Prisma X": LocationData["Prisma X"];
 }
