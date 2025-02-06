@@ -2,10 +2,10 @@ import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { MetricCard } from "@/components/MetricCard";
-import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
 import { useWarehouse } from "@/context/WarehouseContext";
 import { LocationSelector } from "@/components/LocationSelector";
+import { ConteoMetrics } from "@/components/conteos/ConteoMetrics";
+import { ConteoTables } from "@/components/conteos/ConteoTables";
 import { useState } from "react";
 
 const warehouseData = {
@@ -153,110 +153,15 @@ const Conteos = () => {
 
         <LocationSelector onWarehouseChange={handleWarehouseChange} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <MetricCard
-            title="Insumos A"
-            value={currentData.metrics.insumosA}
-            bgColor="bg-[#33C3F0]"
-            onInfoClick={() => handleMoreInfo("Insumos A")}
-          />
-          <MetricCard
-            title="Insumos B"
-            value={currentData.metrics.insumosB}
-            bgColor="bg-[#8E9196]"
-            onInfoClick={() => handleMoreInfo("Insumos B")}
-          />
-          <MetricCard
-            title="Insumos C"
-            value={currentData.metrics.insumosC}
-            bgColor="bg-[#4CAF50]"
-            onInfoClick={() => handleMoreInfo("Insumos C")}
-          />
-          <MetricCard
-            title="Total insumos"
-            value={currentData.metrics.totalInsumos}
-            bgColor="bg-[#F97316]"
-            onInfoClick={() => handleMoreInfo("Total insumos")}
-          />
-        </div>
+        <ConteoMetrics 
+          metrics={currentData.metrics} 
+          onInfoClick={handleMoreInfo} 
+        />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white rounded-lg shadow overflow-hidden">
-            <h3 className="text-lg font-semibold p-4 border-b">Conteos - Teórico/Sistema</h3>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
-                    <TableHead className="text-white">Encabezados</TableHead>
-                    <TableHead className="text-white">Campo 1</TableHead>
-                    <TableHead className="text-white">Campo 2</TableHead>
-                    <TableHead className="text-white">Campo 3</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {currentData.teorico.map((row, index) => (
-                    <TableRow key={index}>
-                      <TableCell className="bg-gray-50">{row.dato}</TableCell>
-                      <TableCell>{row.campo1}</TableCell>
-                      <TableCell>{row.campo2}</TableCell>
-                      <TableCell>{row.campo3}</TableCell>
-                    </TableRow>
-                  ))}
-                  <TableRow className="bg-[#ea384c] text-white hover:bg-[#ea384c]">
-                    <TableCell>Totales</TableCell>
-                    <TableCell>
-                      {currentData.teorico.reduce((acc, row) => acc + parseInt(row.campo1), 0)}
-                    </TableCell>
-                    <TableCell>
-                      {currentData.teorico.reduce((acc, row) => acc + parseInt(row.campo2), 0)}
-                    </TableCell>
-                    <TableCell>
-                      {currentData.teorico.reduce((acc, row) => acc + parseInt(row.campo3), 0)}
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow overflow-hidden">
-            <h3 className="text-lg font-semibold p-4 border-b">Físico</h3>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
-                    <TableHead className="text-white">Encabezados</TableHead>
-                    <TableHead className="text-white">Campo 1</TableHead>
-                    <TableHead className="text-white">Campo 2</TableHead>
-                    <TableHead className="text-white">Campo 3</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {currentData.fisico.map((row, index) => (
-                    <TableRow key={index}>
-                      <TableCell className="bg-gray-50">{row.dato}</TableCell>
-                      <TableCell>{row.campo1}</TableCell>
-                      <TableCell>{row.campo2}</TableCell>
-                      <TableCell>{row.campo3}</TableCell>
-                    </TableRow>
-                  ))}
-                  <TableRow className="bg-[#ea384c] text-white hover:bg-[#ea384c]">
-                    <TableCell>Totales</TableCell>
-                    <TableCell>
-                      {currentData.fisico.reduce((acc, row) => acc + parseInt(row.campo1), 0)}
-                    </TableCell>
-                    <TableCell>
-                      {currentData.fisico.reduce((acc, row) => acc + parseInt(row.campo2), 0)}
-                    </TableCell>
-                    <TableCell>
-                      {currentData.fisico.reduce((acc, row) => acc + parseInt(row.campo3), 0)}
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-        </div>
+        <ConteoTables 
+          teorico={currentData.teorico} 
+          fisico={currentData.fisico} 
+        />
 
         <div className="flex justify-end gap-4 mt-8">
           <Button variant="outline" className="bg-black text-white hover:bg-gray-800">
