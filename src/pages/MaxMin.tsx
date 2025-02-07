@@ -1,3 +1,4 @@
+
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Search, AlertTriangle, ArrowUpDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { LocationSelector } from "@/components/LocationSelector";
 import { useWarehouse } from "@/context/WarehouseContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
 
 const warehouseData = {
@@ -64,11 +66,12 @@ const warehouseData = {
 const MaxMin = () => {
   const { selectedWarehouse } = useWarehouse();
   const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
+  const isMobile = useIsMobile();
 
   return (
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
-      <div className="flex-1 ml-64 p-4">
+      <div className={`flex-1 p-4 ${!isMobile ? 'ml-64' : 'ml-0'}`}>
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-[#1c1c1c]">
             Máximos y Mínimos
