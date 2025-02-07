@@ -72,103 +72,105 @@ const MaxMin = () => {
     <div className="flex min-h-screen bg-[#ffffff]">
       <Sidebar />
       <div className={`flex-1 p-4 ${!isMobile ? 'ml-64' : 'ml-0'}`}>
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-[#1c1c1c]">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1c1c1c]">
             Máximos y Mínimos
           </h2>
           <UserProfile />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
+          <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-red-100 p-3 rounded-full">
-                <AlertTriangle className="h-6 w-6 text-red-600" />
+                <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-red-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-700">Stock Bajo Mínimo</h3>
-                <p className="text-2xl font-bold text-red-600">{currentData.underMin}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-700">Stock Bajo Mínimo</h3>
+                <p className="text-xl sm:text-2xl font-bold text-red-600">{currentData.underMin}</p>
               </div>
             </div>
-            <p className="text-gray-600">Insumos por debajo del nivel mínimo</p>
+            <p className="text-sm sm:text-base text-gray-600">Insumos por debajo del nivel mínimo</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-yellow-100 p-3 rounded-full">
-                <ArrowUpDown className="h-6 w-6 text-yellow-600" />
+                <ArrowUpDown className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-700">Stock Normal</h3>
-                <p className="text-2xl font-bold text-yellow-600">{currentData.normal}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-700">Stock Normal</h3>
+                <p className="text-xl sm:text-2xl font-bold text-yellow-600">{currentData.normal}</p>
               </div>
             </div>
-            <p className="text-gray-600">Insumos en nivel óptimo</p>
+            <p className="text-sm sm:text-base text-gray-600">Insumos en nivel óptimo</p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#8E9196] shadow-sm hover:shadow-md transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-blue-100 p-3 rounded-full">
-                <AlertTriangle className="h-6 w-6 text-blue-600" />
+                <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-700">Stock Sobre Máximo</h3>
-                <p className="text-2xl font-bold text-blue-600">{currentData.overMax}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-700">Stock Sobre Máximo</h3>
+                <p className="text-xl sm:text-2xl font-bold text-blue-600">{currentData.overMax}</p>
               </div>
             </div>
-            <p className="text-gray-600">Insumos por encima del nivel máximo</p>
+            <p className="text-sm sm:text-base text-gray-600">Insumos por encima del nivel máximo</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-8">
-          <div className="flex justify-between items-center mb-6">
-            <div className="relative flex-1 max-w-md">
+        <div className="bg-white rounded-xl shadow-md p-4 sm:p-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+            <div className="relative flex-1 w-full max-w-md">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
               <Input
                 placeholder="Buscar insumo..."
-                className="pl-12 border-gray-200 focus:border-[#ea384c] transition-colors rounded-lg"
+                className="pl-12 border-gray-200 focus:border-[#ea384c] transition-colors rounded-lg w-full"
               />
             </div>
-            <Button className="bg-[#ea384c] text-white hover:bg-[#d42d3d]">
+            <Button className="bg-[#ea384c] text-white hover:bg-[#d42d3d] w-full sm:w-auto">
               Actualizar Niveles
             </Button>
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-gray-200">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
-                  <TableHead className="text-white font-medium">Código</TableHead>
-                  <TableHead className="text-white font-medium">Insumo</TableHead>
-                  <TableHead className="text-white font-medium">Stock Actual</TableHead>
-                  <TableHead className="text-white font-medium">Mínimo</TableHead>
-                  <TableHead className="text-white font-medium">Máximo</TableHead>
-                  <TableHead className="text-white font-medium">Estado</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {currentData.items.map((item, index) => (
-                  <TableRow key={index} className="hover:bg-gray-50">
-                    <TableCell>{item.code}</TableCell>
-                    <TableCell>{item.name}</TableCell>
-                    <TableCell>{item.current}</TableCell>
-                    <TableCell>{item.min}</TableCell>
-                    <TableCell>{item.max}</TableCell>
-                    <TableCell>
-                      <span className={`px-3 py-1 rounded-full ${
-                        item.status === "Bajo Mínimo"
-                          ? "bg-red-100 text-red-800"
-                          : item.status === "Normal"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-blue-100 text-blue-800"
-                      }`}>
-                        {item.status}
-                      </span>
-                    </TableCell>
+          <div className="overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 min-w-[600px]">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-[#ea384c] hover:bg-[#ea384c]">
+                    <TableHead className="text-white font-medium">Código</TableHead>
+                    <TableHead className="text-white font-medium">Insumo</TableHead>
+                    <TableHead className="text-white font-medium">Stock Actual</TableHead>
+                    <TableHead className="text-white font-medium">Mínimo</TableHead>
+                    <TableHead className="text-white font-medium">Máximo</TableHead>
+                    <TableHead className="text-white font-medium">Estado</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {currentData.items.map((item, index) => (
+                    <TableRow key={index} className="hover:bg-gray-50">
+                      <TableCell>{item.code}</TableCell>
+                      <TableCell>{item.name}</TableCell>
+                      <TableCell>{item.current}</TableCell>
+                      <TableCell>{item.min}</TableCell>
+                      <TableCell>{item.max}</TableCell>
+                      <TableCell>
+                        <span className={`px-3 py-1 rounded-full text-xs sm:text-sm ${
+                          item.status === "Bajo Mínimo"
+                            ? "bg-red-100 text-red-800"
+                            : item.status === "Normal"
+                            ? "bg-yellow-100 text-yellow-800"
+                            : "bg-blue-100 text-blue-800"
+                        }`}>
+                          {item.status}
+                        </span>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           </div>
         </div>
       </div>
