@@ -1,4 +1,3 @@
-
 import { Sidebar } from "@/components/Sidebar";
 import { UserProfile } from "@/components/UserProfile";
 import { Button } from "@/components/ui/button";
@@ -6,7 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useWarehouse } from "@/context/WarehouseContext";
 import { ConteoMetrics } from "@/components/conteos/ConteoMetrics";
 import { ConteoTables } from "@/components/conteos/ConteoTables";
-import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const warehouseData = {
   "PIP Sur": {
@@ -124,6 +123,7 @@ const warehouseData = {
 const Conteos = () => {
   const { toast } = useToast();
   const { selectedWarehouse } = useWarehouse();
+  const isMobile = useIsMobile();
   const currentData = warehouseData[selectedWarehouse as keyof typeof warehouseData];
 
   const handleMoreInfo = (section: string) => {
@@ -136,9 +136,9 @@ const Conteos = () => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
-      <div className="flex-1 ml-64 p-4">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-[#1c1c1c]">Conteos de Inventario</h2>
+      <div className={`flex-1 p-4 ${isMobile ? 'ml-0' : 'ml-64'}`}>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1c1c1c]">Conteos de Inventario</h2>
           <UserProfile />
         </div>
 
@@ -152,11 +152,11 @@ const Conteos = () => {
           fisico={currentData.fisico} 
         />
 
-        <div className="flex justify-end gap-4 mt-8">
-          <Button variant="outline" className="bg-black text-white hover:bg-gray-800">
+        <div className="flex flex-col sm:flex-row justify-end gap-4 mt-8">
+          <Button variant="outline" className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto">
             Cancelar
           </Button>
-          <Button className="bg-black text-white hover:bg-gray-800">
+          <Button className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto">
             Guardar
           </Button>
         </div>

@@ -6,10 +6,14 @@ import {
   BarChart3, 
   ArrowLeftRight, 
   MapPin, 
-  Tags 
+  Tags,
+  Menu,
+  X
 } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useWarehouse } from "@/context/WarehouseContext";
+import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const menuItems = [
   { label: "Existencia", path: "/", icon: PackageSearch },
@@ -38,9 +42,15 @@ const LogoSection = () => (
 export const Sidebar = () => {
   const location = useLocation();
   const { selectedWarehouse, setSelectedWarehouse } = useWarehouse();
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
 
-  return (
-    <div className="fixed top-0 left-0 bg-black text-white w-64 h-screen p-4 overflow-y-auto">
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const sidebarContent = (
+    <>
       <LogoSection />
       
       <div className="mb-8">
@@ -68,6 +78,7 @@ export const Sidebar = () => {
               <li key={item.path}>
                 <Link
                   to={item.path}
+                  onClick={() => isMobile && setIsOpen(false)}
                   className={`block p-2 rounded transition-colors text-lg font-bold flex items-center gap-3
                     ${isActive 
                       ? "bg-[#c42c30] text-white" 
@@ -82,7 +93,35 @@ export const Sidebar = () => {
           })}
         </ul>
       </nav>
+    </>
+  );
+
+  if (isMobile) {
+    return (
+      <>
+        <button
+          onClick={toggleSidebar}
+          className="fixed top-4 left-4 z-50 p-2 bg-black text-white rounded-lg"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        
+        <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`} onClick={() => setIsOpen(false)} />
+        
+        <div className={`fixed top-0 left-0 h-full w-64 bg-black text-white p-4 z-40 transform transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}>
+          {sidebarContent}
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <div className="fixed top-0 left-0 bg-black text-white w-64 h-screen p-4 overflow-y-auto">
+      {sidebarContent}
     </div>
   );
 };
-
