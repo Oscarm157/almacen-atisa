@@ -1,6 +1,7 @@
 
+import { useState } from "react";
 import { MetricCard } from "@/components/MetricCard";
-import { useToast } from "@/components/ui/use-toast";
+import { DetailedMetricsPanel } from "./DetailedMetricsPanel";
 
 interface MetricsGridProps {
   insumosRegistrados: number;
@@ -15,41 +16,51 @@ export const MetricsGrid = ({
   existenciaImporte,
   movimientosDia
 }: MetricsGridProps) => {
-  const { toast } = useToast();
+  const [showPanel, setShowPanel] = useState(false);
 
-  const showMoreInfo = (metric: string) => {
-    toast({
-      title: "Más información",
-      description: `Mostrando más información sobre ${metric}`,
-    });
+  const handleInfoClick = () => {
+    setShowPanel(!showPanel);
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-      <MetricCard
-        title="Insumos registrados"
-        value={Math.round(insumosRegistrados)}
-        bgColor="bg-[#33C3F0]"
-        onInfoClick={() => showMoreInfo("insumos")}
-      />
-      <MetricCard
-        title="Existencia en cantidad"
-        value={Math.round(existenciaCantidad)}
-        bgColor="bg-[#8E9196]"
-        onInfoClick={() => showMoreInfo("existencia")}
-      />
-      <MetricCard
-        title="Existencia en importe"
-        value={`$${Math.round(existenciaImporte)}`}
-        bgColor="bg-[#4CAF50]"
-        onInfoClick={() => showMoreInfo("importe")}
-      />
-      <MetricCard
-        title="Movimientos del día"
-        value={Math.round(movimientosDia)}
-        bgColor="bg-[#F97316]"
-        onInfoClick={() => showMoreInfo("movimientos")}
-      />
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <MetricCard
+          title="Insumos registrados"
+          value={Math.round(insumosRegistrados)}
+          bgColor="bg-[#33C3F0]"
+          onInfoClick={handleInfoClick}
+        />
+        <MetricCard
+          title="Existencia en cantidad"
+          value={Math.round(existenciaCantidad)}
+          bgColor="bg-[#8E9196]"
+          onInfoClick={handleInfoClick}
+        />
+        <MetricCard
+          title="Existencia en importe"
+          value={`$${Math.round(existenciaImporte)}`}
+          bgColor="bg-[#4CAF50]"
+          onInfoClick={handleInfoClick}
+        />
+        <MetricCard
+          title="Movimientos del día"
+          value={Math.round(movimientosDia)}
+          bgColor="bg-[#F97316]"
+          onInfoClick={handleInfoClick}
+        />
+      </div>
+
+      {showPanel && (
+        <div className="bg-white rounded-lg shadow p-4">
+          <DetailedMetricsPanel
+            insumosRegistrados={insumosRegistrados}
+            existenciaCantidad={existenciaCantidad}
+            existenciaImporte={existenciaImporte}
+            movimientosDia={movimientosDia}
+          />
+        </div>
+      )}
     </div>
   );
 };
