@@ -1,5 +1,5 @@
 
-import { LineChart as RechartsLineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import { LineChart as RechartsLineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from "recharts";
 
 interface LineChartProps {
   data: Array<{ name: string; value: number }>;
@@ -17,6 +17,15 @@ export const LineChart = ({ data, colors, title }: LineChartProps) => {
             <CartesianGrid strokeDasharray="3 3" stroke="#dddddd" />
             <XAxis dataKey="name" stroke="#1c1c1c" />
             <YAxis stroke="#1c1c1c" />
+            <Tooltip
+              contentStyle={{ 
+                backgroundColor: 'white',
+                border: '1px solid #cccccc',
+                borderRadius: '4px',
+                padding: '8px'
+              }}
+              formatter={(value: any) => [`${value}`, 'Cantidad']}
+            />
             <Line type="monotone" dataKey="value" stroke={colors[0]} />
           </RechartsLineChart>
         </ResponsiveContainer>

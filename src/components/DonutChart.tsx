@@ -1,5 +1,5 @@
 
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 interface DonutChartProps {
   data: Array<{ name: string; value: number }>;
@@ -22,11 +22,21 @@ export const DonutChart = ({ data, colors, title }: DonutChartProps) => {
               outerRadius={80}
               paddingAngle={5}
               dataKey="value"
+              nameKey="name"
             >
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
               ))}
             </Pie>
+            <Tooltip
+              contentStyle={{ 
+                backgroundColor: 'white',
+                border: '1px solid #cccccc',
+                borderRadius: '4px',
+                padding: '8px'
+              }}
+              formatter={(value: any, name: any) => [`${value}`, name]}
+            />
           </PieChart>
         </ResponsiveContainer>
       </div>

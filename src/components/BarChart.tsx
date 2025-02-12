@@ -1,5 +1,5 @@
 
-import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from "recharts";
 
 interface BarChartProps {
   data: Array<{ name: string; value: number }>;
@@ -17,6 +17,15 @@ export const BarChart = ({ data, colors, title }: BarChartProps) => {
             <CartesianGrid strokeDasharray="3 3" stroke="#dddddd" />
             <XAxis dataKey="name" stroke="#1c1c1c" />
             <YAxis stroke="#1c1c1c" />
+            <Tooltip
+              contentStyle={{ 
+                backgroundColor: 'white',
+                border: '1px solid #cccccc',
+                borderRadius: '4px',
+                padding: '8px'
+              }}
+              formatter={(value: any) => [`${value}`, 'Cantidad']}
+            />
             <Bar dataKey="value" fill={colors[0]} />
           </RechartsBarChart>
         </ResponsiveContainer>
